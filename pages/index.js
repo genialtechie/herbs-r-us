@@ -6,7 +6,7 @@ import star from '../public/star.svg';
 
 export default function Home() {
   return (
-    <div className="h-full w-full container relative overflow-y-hidden">
+    <div className="h-full w-full container relative">
       <div className="container h-fit">
         <div className="bg-custom-theme text-white">
           <div className="h-fit p-10 container lg:w-5/6 mx-auto flex flex-col-reverse lg:flex-row pt-14">
@@ -187,7 +187,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container w-full h-72 hidden lg:block"></div>
-      <div className="absolute mx-auto inset-x-0 container h-fit w-4/5 bg-custom-theme px-12 p-5 -bottom-10 z-10 rounded-xl text-white hidden flex-row lg:flex justify-around">
+      <div className="absolute mx-auto inset-x-0 container h-fit w-4/5 bg-custom-theme px-12 p-5 -bottom-10 z-40 rounded-xl text-white hidden flex-row lg:flex justify-around">
         <div>
           <h1 className="font-bold text-4xl py-4 ">
             Jump in <span className="text-custom-gray">the party bus!</span>
