@@ -89,7 +89,7 @@ export default function Home() {
           </h1>
           <div className="container lg:w-5/6 mx-auto grid auto-rows-min grid-cols-1 lg:grid-rows-1 lg:grid-cols-2 gap-10">
             <div className="lg:my-14">
-              <div className="flex flex-row my-8">
+              <div className="flex flex-row my-8 w-fit mx-auto lg:mx-0">
                 <Image
                   src={star}
                   alt="star"
@@ -126,7 +126,9 @@ export default function Home() {
                   className="scale-125 mr-2"
                 />
               </div>
-              <h1 className="text-4xl font-bold mb-5">People love us</h1>
+              <h1 className="text-4xl font-bold mb-5 text-center lg:text-left">
+                People love us
+              </h1>
               <p className="text-2xl font-bold font-serif text-center lg:text-left mb-5">
                 (and we love them too!)
               </p>
