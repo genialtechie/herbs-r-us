@@ -37,7 +37,7 @@ const MobileNav = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-theme cursor-pointer"
               >
-                <Link href="/products">Shop</Link>
+                <Link href="/products?category=all">Shop</Link>
               </li>
               <li
                 onClick={() => setIsOpen(!isOpen)}

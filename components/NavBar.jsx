@@ -36,7 +36,7 @@ const NavBar = () => {
           <Link href="/about">About Us</Link>
         </li>
         <li className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer">
-          <Link href="/products">Shop</Link>
+          <Link href="/products?category=all">Shop</Link>
         </li>
         <li className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer">
           Contact
