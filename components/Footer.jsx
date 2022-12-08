@@ -80,14 +80,14 @@ const Footer = () => {
                 placeholder="Last Name"
                 name="name"
                 id="customer_name"
-                className="w-28 mr-2 h-10 border-b-[3px] border-gray-400 p-2 bg-inherit placeholder:text-gray-400 outline-none focus:border-custom-theme mb-5"
+                className="w-28 mr-2 h-10 border-b-[3px] border-0 focus:ring-0 border-gray-400 p-2 bg-inherit placeholder:text-gray-400 outline-none focus:border-custom-theme mb-5"
               />
               <input
                 type="text"
                 placeholder="+31 6 12345678"
                 name="phone"
                 id="customer_phone"
-                className="w-36 h-10 border-b-[3px] border-gray-400 p-2 bg-inherit placeholder:text-gray-400 outline-none focus:border-custom-theme mb-5"
+                className="w-36 h-10 border-b-[3px] border-0 focus:ring-0 border-gray-400 p-2 bg-inherit placeholder:text-gray-400 outline-none focus:border-custom-theme mb-5"
               />
             </div>
             <input
@@ -95,7 +95,7 @@ const Footer = () => {
               placeholder="example@email.com"
               name="email"
               id="customer_email"
-              className="w-64 h-10 border-b-[3px] border-gray-400 p-2 bg-inherit placeholder:text-gray-400 outline-none focus:border-custom-theme mb-5"
+              className="w-64 h-10 border-b-[3px] border-0 focus:ring-0 border-gray-400 p-2 bg-inherit placeholder:text-gray-400 outline-none focus:border-custom-theme mb-5"
             />
             <button
               type="submit"
