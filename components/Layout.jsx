@@ -2,6 +2,8 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import Head from 'next/head';
 import { Roboto } from '@next/font/google';
+import Cart from './shop/Cart';
+import { useRef } from 'react';
 
 const roboto = Roboto({
   weight: '400',
@@ -9,6 +11,7 @@ const roboto = Roboto({
 });
 
 export default function Layout({ children }) {
+  const mainRef = useRef(null);
   return (
     <>
       <Head>
@@ -22,9 +25,15 @@ export default function Layout({ children }) {
           href="/favicon.ico"
         />
       </Head>
-      <NavBar />
-      <main className={`${roboto.variable} font-serif`}>{children}</main>
-      <Footer className={`${roboto.variable} font-serif`} />
+      <NavBar reference={mainRef} />
+      <main className={`${roboto.variable} font-serif`}>
+        {children}
+        <Cart />
+      </main>
+      <Footer
+        ref={mainRef}
+        className={`${roboto.variable} font-serif`}
+      />
     </>
   );
 }

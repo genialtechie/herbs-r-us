@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import instagram from '../public/instagram.svg';
 import facebook from '../public/facebook.svg';
 
-const Footer = () => {
+const Footer = forwardRef((props, ref) => {
   return (
-    <footer className="w-full h-fit text-black bg-[#edf2f4] container relative bottom-0 overflow-y-hidden">
+    <footer
+      ref={ref}
+      className="w-full h-fit text-black bg-[#edf2f4] container relative bottom-0 overflow-y-hidden"
+    >
       <h1 className="text-4xl px-1 pt-24 pb-14 font-bold text-center">
         We make us in <span className="text-custom-theme">happy customers</span>
       </h1>
@@ -108,6 +111,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;

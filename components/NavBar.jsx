@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Cart from '../public/shopping-cart.svg';
 import MobileNav from './MobileNav';
+import { useCart } from '../utils/CartContext';
 
 const zen = Kaushan_Script({
   weight: '400',
@@ -17,7 +18,11 @@ const roboto = Roboto({
   variable: '--font-roboto',
 });
 
-const NavBar = () => {
+const NavBar = ({ reference }) => {
+  function handleClick() {
+    reference.current?.scrollIntoView({ behavior: 'smooth' });
+  }
+  const { setCartOpen } = useCart();
   return (
     <nav className="w-full text-white h-fit bg-custom-theme flex flex-col lg:flex-row lg:justify-around items-center">
       <MobileNav />
@@ -38,10 +43,16 @@ const NavBar = () => {
         <li className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer">
           <Link href="/products?category=all">Shop</Link>
         </li>
-        <li className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer">
+        <li
+          onClick={handleClick}
+          className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer"
+        >
           Contact
         </li>
-        <li className=" h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer">
+        <li
+          onClick={handleClick}
+          className=" h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer"
+        >
           Get a Quote
         </li>
         <Image
@@ -50,6 +61,7 @@ const NavBar = () => {
           height={60}
           width={60}
           className="scale-50 hover:scale-75 transition-all duration-200 ease-in-out cursor-pointer"
+          onClick={() => setCartOpen(true)}
         />
       </ul>
     </nav>

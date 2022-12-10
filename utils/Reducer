@@ -1,0 +1,57 @@
+const initialState = {
+  cart: [],
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD_TO_CART': {
+      const product = action.payload;
+      const productInCart = state.cart.find((item) => item.id === product.id);
+      if (productInCart) {
+        return {
+          ...state,
+          cart: state.cart.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + product.quantity }
+              : item
+          ),
+        };
+      } else {
+        return { ...state, cart: [...state.cart, product] };
+      }
+    }
+    case 'REMOVE_FROM_CART': {
+      const product = action.payload;
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== product.id),
+      };
+    }
+    case 'DECREASE_QUANTITY': {
+      const product = action.payload;
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        ),
+      };
+    }
+    case 'INCREASE_QUANTITY': {
+      const product = action.payload;
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ),
+      };
+    }
+    default:
+      return state;
+  }
+};
+
+export { initialState, reducer };

@@ -1,0 +1,7 @@
+.DatePicker {
+  z-index: unset !important;
+}
+
+.DatePicker__calendarContainer {
+  z-index: 10 !important;
+}

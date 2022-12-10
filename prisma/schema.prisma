@@ -35,8 +35,8 @@ model Order {
 
 model OrderProduct {
   id        String  @id @default(uuid()) @map("_id")
-  order     Order?   @relation(fields: [orderId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  orderId   String?  
+  order     Order   @relation(fields: [orderId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  orderId   String  
   product   Product @relation(fields: [productId], references: [id])
   productId String
   quantity  Int

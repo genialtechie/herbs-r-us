@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getAvailableProducts } from '../../prisma/queries';
 import QtyInput from '../../components/shop/QtyInput';
+import { useCart } from '../../utils/CartContext';
 
 const MyDatePicker = dynamic(
   () => import('../../components/shop/MyDatePicker'),
@@ -17,11 +18,36 @@ export default function Product({ product }) {
   const [selectedDay, setSelectedDay] = useState(null);
   const [qty, setQty] = useState(1);
   const [policy, setPolicy] = useState(false);
-
+  const { dispatch, setCartOpen } = useCart();
   const router = useRouter();
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return (
+      <div className="h-screen container flex justify-center items-center">
+        <span>This product is currently unavailable..</span>
+      </div>
+    );
   }
+
+  const addToCart = () => {
+    if (!selectedDay) {
+      alert('Please select a date');
+      return;
+    }
+    if (!policy) {
+      alert('Please agree to the rental policy');
+      return;
+    }
+    const rentalDate = new Date(
+      selectedDay.year,
+      selectedDay.month - 1,
+      selectedDay.day
+    );
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: { ...product, quantity: qty, rentalDate: rentalDate },
+    });
+    setCartOpen(true);
+  };
 
   return (
     <div className="container h-fit grid grid-cols-1 lg:grid-cols-3">
@@ -46,7 +72,7 @@ export default function Product({ product }) {
       <div className="lg:col-span-1 p-10">
         <p className="mb-5 text-xl">{product.description}</p>
         <form
-          onClick={(e) => {
+          onSubmit={(e) => {
             e.preventDefault();
           }}
         >
@@ -93,6 +119,7 @@ export default function Product({ product }) {
           <button
             type="submit"
             className="w-fit bg-custom-theme text-white my-2 lg:my-4 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
+            onClick={addToCart}
           >
             Add to cart
           </button>

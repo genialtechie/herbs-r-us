@@ -1,3 +1,4 @@
+import styles from '../../styles/date-picker.module.css';
 import '@amir04lm26/react-modern-calendar-date-picker/lib/DatePicker.css';
 import DatePicker from '@amir04lm26/react-modern-calendar-date-picker';
 import { utils } from '@amir04lm26/react-modern-calendar-date-picker';
@@ -14,7 +15,7 @@ const MyDatePicker = ({ selectedDay, setSelectedDay }) => {
           : ''
       }
       onChange={() => {}}
-      className="form-input block w-full px-1 border-0 border-b-2 border-gray-400 focus:ring-0 focus:border-custom-theme"
+      className="form-input z-10 block w-full px-1 border-0 border-b-2 border-gray-400 focus:ring-0 focus:border-custom-theme"
     />
   );
   return (
@@ -22,6 +23,8 @@ const MyDatePicker = ({ selectedDay, setSelectedDay }) => {
       value={selectedDay}
       onChange={setSelectedDay}
       renderInput={renderCustomInput}
+      calendarClassName={styles.DatePicker__calendarContainer}
+      wrapperClassName={styles.DatePicker}
       minimumDate={utils().getToday()}
       colorPrimary="#a128b7"
       calendarPopperPosition="auto"
