@@ -15,7 +15,6 @@ model Product {
   description  String?
   category     Category       @relation(fields: [categoryId], references: [id], onUpdate: Cascade, onDelete: Cascade)
   categoryId   String         
-  quantity     Int            @default(1)
   orders OrderProduct[]
 }
 
@@ -29,7 +28,9 @@ model Order {
   id       String         @id @default(uuid()) @map("_id") 
   userId   String?
   email    String
-  phone    String
+  phone    String?
+  address  String
+  total    Float
   products OrderProduct[] 
 }
 
@@ -40,6 +41,5 @@ model OrderProduct {
   product   Product @relation(fields: [productId], references: [id])
   productId String
   quantity  Int
-  rentalFrom      DateTime
-  rentalTo        DateTime
+  rentalDate      DateTime
 }

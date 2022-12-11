@@ -3,6 +3,7 @@ import carnival from '../public/carnival.png';
 import event from '../public/event.jpg';
 import testimonial from '../public/testimonials.svg';
 import star from '../public/star.svg';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -25,10 +26,10 @@ export default function Home() {
                 </p>
                 <div className="mx-auto lg:mx-0 w-fit h-fit">
                   <button className="font-serif mx-2 text-lg rounded-md h-fit w-fit px-5 py-2 mt-5 transition-all duration-200 ease-in-out hover:bg-white hover:text-custom-theme border border-white">
-                    Get a Quote
+                    <Link href="/about">Learn More</Link>
                   </button>
                   <button className="font-serif mx-2 text-lg rounded-md h-fit w-fit px-5 py-2 mt-5 transition-all duration-200 ease-in-out hover:bg-white hover:text-custom-theme border border-white">
-                    Shop
+                    <Link href="/products">Shop</Link>
                   </button>
                 </div>
               </div>
@@ -200,7 +201,7 @@ export default function Home() {
             create the best results for our clients.
           </p>
           <button className="border border-white rounded-sm transition-all duration-200 hover:bg-white hover:text-custom-theme h-fit w-fit px-5 py-2">
-            Contact us
+            <a href="mailto:jumparoundinfl@yahoo.com">Contact us</a>
           </button>
         </div>
         <div className="h-[250px] w-[500px] relative">

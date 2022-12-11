@@ -1,5 +1,7 @@
+import Cookies from 'js-cookie';
+
 const initialState = {
-  cart: [],
+  cart: Cookies.get('cart') ? JSON.parse(Cookies.get('cart')) : [],
 };
 
 const reducer = (state, action) => {
@@ -7,47 +9,37 @@ const reducer = (state, action) => {
     case 'ADD_TO_CART': {
       const product = action.payload;
       const productInCart = state.cart.find((item) => item.id === product.id);
-      if (productInCart) {
-        return {
-          ...state,
-          cart: state.cart.map((item) =>
+      const newCart = productInCart
+        ? state.cart.map((item) =>
             item.id === product.id
               ? { ...item, quantity: item.quantity + product.quantity }
               : item
-          ),
-        };
-      } else {
-        return { ...state, cart: [...state.cart, product] };
-      }
+          )
+        : [...state.cart, product];
+      Cookies.set('cart', JSON.stringify(newCart));
+      return { ...state, cart: newCart };
     }
     case 'REMOVE_FROM_CART': {
       const product = action.payload;
-      return {
-        ...state,
-        cart: state.cart.filter((item) => item.id !== product.id),
-      };
+      const newCart = state.cart.filter((item) => item.id !== product.id);
+      Cookies.set('cart', JSON.stringify(newCart));
+      return { ...state, cart: newCart };
     }
     case 'DECREASE_QUANTITY': {
       const product = action.payload;
-      return {
-        ...state,
-        cart: state.cart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        ),
-      };
+      const newCart = state.cart.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+      Cookies.set('cart', JSON.stringify(newCart));
+      return { ...state, cart: newCart };
     }
     case 'INCREASE_QUANTITY': {
       const product = action.payload;
-      return {
-        ...state,
-        cart: state.cart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        ),
-      };
+      const newCart = state.cart.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      Cookies.set('cart', JSON.stringify(newCart));
+      return { ...state, cart: newCart };
     }
     default:
       return state;

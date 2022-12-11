@@ -5,13 +5,12 @@ async function main() {
   let products = [];
   let categories = [];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 4; i++) {
     products.push({
       name: faker.commerce.product(),
       image_url:
         'https://via.placeholder.com/500.png?text=Product+Image+Placeholder',
       price: Number(faker.commerce.price(100, 500)),
-      quantity: Number(faker.datatype.number(1, 3)),
       description: faker.commerce.productDescription(),
     });
   }

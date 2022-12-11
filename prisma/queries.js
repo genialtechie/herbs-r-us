@@ -4,9 +4,6 @@ export const getAvailableProducts = async () => {
   try {
     const products = await prisma.product.findMany({
       include: { category: true },
-      where: {
-        quantity: { gt: 0 },
-      },
     });
     return products;
   } catch (error) {
@@ -49,9 +46,6 @@ export const getFilteredProducts = async (filter) => {
   try {
     const products = await prisma.product.findMany({
       include: { category: true },
-      where: {
-        quantity: { gt: 0 },
-      },
       orderBy: {
         price: filter,
       },

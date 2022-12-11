@@ -37,14 +37,9 @@ export default function Product({ product }) {
       alert('Please agree to the rental policy');
       return;
     }
-    const rentalDate = new Date(
-      selectedDay.year,
-      selectedDay.month - 1,
-      selectedDay.day
-    );
     dispatch({
       type: 'ADD_TO_CART',
-      payload: { ...product, quantity: qty, rentalDate: rentalDate },
+      payload: { ...product, quantity: qty, rentalDate: selectedDay },
     });
     setCartOpen(true);
   };
