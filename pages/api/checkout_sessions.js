@@ -1,5 +1,7 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const { Client, Environment, ApiError } = require('square');
 import Cors from 'cors';
+import { randomUUID } from 'crypto';
+import { DateConverter } from '../../utils/DateConverter';
 
 // Initializing the cors middleware
 const cors = Cors({
@@ -19,6 +21,14 @@ function runMiddleware(req, res, fn) {
   });
 }
 
+// Initializing the square client
+const client = new Client({
+  environment: Environment.Sandbox,
+  accessToken: process.env.SQUARE_ACCESS_TOKEN,
+});
+
+const { checkoutApi } = client;
+
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     // Run the middleware
@@ -26,38 +36,35 @@ export default async function handler(req, res) {
     const { items } = req.body;
 
     const transformedItems = items.map((item) => ({
-      quantity: item.quantity,
-      price_data: {
-        currency: 'usd',
-        unit_amount: item.price * 100,
-        product_data: {
-          name: item.name,
-          images: [item.image_url],
-          metadata: {
-            rentalDate: new Date(
-              item.rentalDate.year,
-              item.rentalDate.month - 1,
-              item.rentalDate.day
-            ),
-            productId: item.id,
-          },
-        },
+      quantity: item.quantity.toString(),
+      metadata: {
+        productId: item.id,
+        rentalDate: DateConverter(item.rentalDate).toISOString(),
+      },
+      name: item.name,
+      note: `Reservation for ${DateConverter(item.rentalDate).toDateString()}}`,
+      basePriceMoney: {
+        currency: 'USD',
+        amount: item.price * 100,
       },
     }));
 
     try {
-      const session = await stripe.checkout.sessions.create({
-        mode: 'payment',
-        shipping_address_collection: {
-          allowed_countries: ['US'],
+      const session = await checkoutApi.createPaymentLink({
+        idempotencyKey: randomUUID(),
+        checkoutOptions: {
+          merchantSupportEmail: 'jumparoundinfl@yahoo.com',
+          askForShippingAddress: true,
         },
-        line_items: transformedItems,
-        success_url: `${req.headers.origin}/payment_status/?success=true`,
-        cancel_url: `${req.headers.origin}/payment_status/?canceled=true`,
+        order: {
+          locationId: process.env.SQUARE_LOCATION_ID,
+          lineItems: transformedItems,
+        },
       });
-      res.status(200).json({ url: session.url, id: session.id });
+      res.status(200).json(session.result.paymentLink);
     } catch (error) {
       res.status(500).json({ statusCode: 500, message: error.message });
+      console.log(error);
     }
   } else {
     res.status(405).json({ statusCode: 405, message: 'Method not allowed' });

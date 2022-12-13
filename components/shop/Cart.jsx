@@ -2,11 +2,7 @@ import React, { useEffect } from 'react';
 import { useCart } from '../../utils/CartContext';
 import close from '../../public/close.svg';
 import Image from 'next/image';
-import { loadStripe } from '@stripe/stripe-js';
-
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
+import { DateConverter } from '../../utils/DateConverter';
 
 const Cart = () => {
   const { state, dispatch, cartOpen, setCartOpen } = useCart();
@@ -22,10 +18,7 @@ const Cart = () => {
       }),
     });
     const session = await response.json();
-    const stripe = await stripePromise;
-    const { error } = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+    window.location.href = session.url;
   }
 
   useEffect(() => {
@@ -41,7 +34,7 @@ const Cart = () => {
           onClick={() => setCartOpen(false)}
           className="hidden lg:block bg-transparent opacity-0 lg:col-span-2 cursor-pointer"
         ></div>
-        <div className="p-10 bg-white flex flex-col justify-between overflow-y-auto opacity-100">
+        <div className="p-5 lg:p-10 bg-white flex flex-col justify-between overflow-y-auto opacity-100">
           <div>
             <h2 className="text-3xl font-bold mb-10">
               My Cart
@@ -125,16 +118,15 @@ const Cart = () => {
                     <span className="ml-4 mb-6">${item.price}</span>
                   </div>
                   <div className="p-1 px-4 w-full border-b-2">
-                    {new Date(
-                      item.rentalDate.year,
-                      item.rentalDate.month - 1,
-                      item.rentalDate.day
-                    ).toLocaleDateString('en-US', {
-                      weekday: 'long',
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
+                    {DateConverter(item.rentalDate).toLocaleDateString(
+                      'en-US',
+                      {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      }
+                    )}
                   </div>
                 </div>
               ))}

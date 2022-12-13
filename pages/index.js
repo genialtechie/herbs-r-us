@@ -77,15 +77,15 @@ export default function Home() {
           </div>
         </div>
         <hr className="w-4/5 mx-auto h-1 bg-custom-theme" />
-        <div className="mt-10 text-custom-gray p-10 container lg:w-4/5 lg:mx-auto flex flex-col">
+        <div className="lg:mt-10 text-custom-gray p-10 container lg:w-4/5 lg:mx-auto flex flex-col">
           <Image
             src={testimonial}
             alt="testimonial"
             height={60}
             width={60}
-            className="scale-105 my-5 mx-auto"
+            className="scale-105 mb-8 lg:my-5 mx-auto"
           />
-          <h1 className="text-3xl font-serif font-bold text-center mb-5">
+          <h1 className="text-3xl font-serif font-bold text-center mb-8">
             What our customers are saying
           </h1>
           <div className="container lg:w-5/6 mx-auto grid auto-rows-min grid-cols-1 lg:grid-rows-1 lg:grid-cols-2 gap-10">

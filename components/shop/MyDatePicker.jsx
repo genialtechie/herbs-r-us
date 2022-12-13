@@ -7,7 +7,7 @@ const MyDatePicker = ({ selectedDay, setSelectedDay }) => {
   const renderCustomInput = ({ ref }) => (
     <input
       ref={ref}
-      placeholder="Select a date"
+      placeholder="Reserve a date"
       style={{ width: 250 }}
       value={
         selectedDay

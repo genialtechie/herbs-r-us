@@ -3,9 +3,12 @@ import { Kaushan_Script } from '@next/font/google';
 import { Roboto } from '@next/font/google';
 import Link from 'next/link';
 import Image from 'next/image';
-import Cart from '../public/shopping-cart.svg';
-import MobileNav from './MobileNav';
+import dynamic from 'next/dynamic';
 import { useCart } from '../utils/CartContext';
+import logo from '../public/logo.png';
+import MobileNav from './MobileNav';
+
+const ShoppingCart = dynamic(() => import('./ShoppingCart'), { ssr: false });
 
 const zen = Kaushan_Script({
   weight: '400',
@@ -22,7 +25,7 @@ const NavBar = ({ reference }) => {
   function handleClick() {
     reference.current?.scrollIntoView({ behavior: 'smooth' });
   }
-  const { setCartOpen } = useCart();
+  const { state, setCartOpen } = useCart();
   return (
     <nav className="w-full text-white h-fit bg-custom-theme flex flex-col lg:flex-row lg:justify-around items-center">
       <MobileNav />
@@ -30,8 +33,13 @@ const NavBar = ({ reference }) => {
         className={`text-5xl ${zen.variable} font-sans py-5 text-center transition-all duration-200 ease-in-out hover:text-custom-gray`}
       >
         <Link href="/">
-          Jump Around <br />
-          Inflatables
+          <Image
+            src={logo}
+            alt="logo"
+            height={110}
+            width={150}
+            className="cursor-pointer scale-125 scale-x-150 ml-2"
+          />
         </Link>
       </h1>
       <ul
@@ -55,14 +63,7 @@ const NavBar = ({ reference }) => {
         >
           Get a Quote
         </li>
-        <Image
-          src={Cart}
-          alt="cart"
-          height={60}
-          width={60}
-          className="scale-50 hover:scale-75 transition-all duration-200 ease-in-out cursor-pointer"
-          onClick={() => setCartOpen(true)}
-        />
+        <ShoppingCart />
       </ul>
     </nav>
   );

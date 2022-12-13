@@ -3,12 +3,15 @@ import menu from '../public/menu.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import close from '../public/close.svg';
+import dynamic from 'next/dynamic';
+
+const ShoppingCart = dynamic(() => import('./ShoppingCart'), { ssr: false });
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <>
       {isOpen ? (
         <div className="h-screen w-screen container bg-white fixed inset-x-0 inset-y-0 z-50 overflow-y-scoll">
           <div className="py-20 px-3 text-custom-gray">
@@ -69,16 +72,19 @@ const MobileNav = () => {
           </div>
         </div>
       ) : (
-        <Image
-          src={menu}
-          alt="menu"
-          height={60}
-          width={60}
-          className="hover:scale-110 lg:hidden mb-2 mt-10 transition-all duration-200 ease-in-out cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}
-        />
+        <div className="flex flex-row justify-between lg:hidden mb-2 mt-8 w-11/12">
+          <Image
+            src={menu}
+            alt="menu"
+            height={60}
+            width={60}
+            className="hover:scale-110 transition-all duration-200 ease-in-out cursor-pointer mx-3"
+            onClick={() => setIsOpen(!isOpen)}
+          />
+          <ShoppingCart />
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

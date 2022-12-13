@@ -91,7 +91,7 @@ export default function Product({ product }) {
               setSelectedDay={setSelectedDay}
             />
           </label>
-          <div>
+          <div className="my-3">
             <input
               type="checkbox"
               id="acceptPolicy"
@@ -113,14 +113,14 @@ export default function Product({ product }) {
           </div>
           <button
             type="submit"
-            className="w-fit bg-custom-theme text-white my-2 lg:my-4 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
+            className="w-fit bg-custom-theme text-white my-2 lg:my-6 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
             onClick={addToCart}
           >
             Add to cart
           </button>
           <button
             type="submit"
-            className="w-fit bg-custom-theme text-white my-2 lg:my-4 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
+            className="w-fit bg-custom-theme text-white my-2 lg:my-6 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
           >
             Check out now
           </button>

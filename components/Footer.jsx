@@ -10,11 +10,11 @@ const Footer = forwardRef((props, ref) => {
       ref={ref}
       className="w-full h-fit text-black bg-[#edf2f4] container relative bottom-0 overflow-y-hidden"
     >
-      <h1 className="text-4xl px-1 pt-24 pb-14 font-bold text-center">
+      <h1 className="text-4xl px-1 pt-10 lg:pt-24 lg:pb-14 pb-7 font-bold text-center">
         We make us in <span className="text-custom-theme">happy customers</span>
       </h1>
       <div className="w-4/5 mx-auto p-5 my-5 flex flex-col lg:flex-row justify-around">
-        <div className="mb-5 lg:mb-0">
+        <div className="mb-10 lg:mb-0">
           <h1 className="font-bold mb-3">We guide you to a succesful event</h1>
           <p className="mb-2 w-56">
             We are a team of specialists, who love to challenge what we already
@@ -61,15 +61,15 @@ const Footer = forwardRef((props, ref) => {
             </Link>
           </p>
           <p>
-            <Link
+            <a
               className="hover:text-custom-theme hover:scale-110 transition-all duration-200 ease-in-out"
-              href="https:magpollo.com"
+              href="https://magpollo.com"
             >
               Built by Magpollo
-            </Link>
+            </a>
           </p>
         </div>
-        <div className="mb-5 lg:mb-0">
+        <div className="mb-10 lg:mb-0">
           <h1 className="font-bold mb-3">Get a Quote</h1>
           <p className="mb-2">We are happy to help you with your event</p>
           <form

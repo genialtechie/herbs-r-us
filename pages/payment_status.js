@@ -19,7 +19,7 @@ const PaymentStatus = () => {
   }, []);
 
   return (
-    <div className="container flex flex-col h-screen w-3/4 mx-auto">
+    <div className="container flex flex-col h-fit w-3/4 mx-auto">
       {status === 'success' && (
         <>
           <div
@@ -42,7 +42,7 @@ const PaymentStatus = () => {
               Your payment was successful.{' '}
             </span>
           </div>
-          <p className="mb-10 text-lg text-center">
+          <p className="mb-20 text-lg text-center">
             <Image
               src={happy}
               alt="happy"
@@ -76,7 +76,7 @@ const PaymentStatus = () => {
               Your payment was not successful.{' '}
             </span>
           </div>
-          <p className="mb-10 text-lg text-center">
+          <p className="mb-20 text-lg text-center">
             <Image
               src={sad}
               alt="sad"

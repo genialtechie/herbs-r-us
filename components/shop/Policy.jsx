@@ -28,10 +28,8 @@ const Policy = () => {
           <li>No food gum, sharp objects should be taken into the bounces</li>
           <li>No pets allowed in the bounces</li>
           <li>
-            Signed rental agreement, waiver, and safety acknowledgement form
-            prior to setting up bounce, forms will be sent via e-mail or fax{' '}
-            <br className="hidden lg:block" />
-            and must be returned prior to rental date.
+            Signed rental agreement, waiver, and safety acknowledgement forms
+            prior to setting up bounce, download below and return via email.
           </li>
           <li>Please do not tamper with JAI products</li>
           <li>
@@ -72,6 +70,39 @@ const Policy = () => {
           <li>
             We recommend a grounded outlet on a 20-amp circuit breaker in order
             to keep blower operational for inflation
+          </li>
+          <li>
+            Please download and fill out the{' '}
+            <a
+              href="/forms/rental_agreement.pdf"
+              alt="rental agreement"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-custom-theme transition duration-200 ease-in-out"
+            >
+              rental agreement
+            </a>
+            {', '}
+            <a
+              href="/forms/waiver.pdf"
+              alt="waiver"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-custom-theme transition duration-200 ease-in-out"
+            >
+              waiver
+            </a>{' '}
+            &{' '}
+            <a
+              href="/forms/safety_acknowledgement.pdf"
+              alt="safety acknowledgement"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-custom-theme transition duration-200 ease-in-out"
+            >
+              safety acknowledgement
+            </a>{' '}
+            forms and return to us via email
           </li>
         </ul>
       </div>
