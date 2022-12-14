@@ -1,8 +1,5 @@
 import { buffer } from 'micro';
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 import prisma from '../../prisma/prismaClient';
-
-const endpointSecret = process.env.STRIPE_SIGNING_SECRET;
 
 const fulfillOrder = async (session) => {
   console.log('Fulfilling order');
@@ -30,31 +27,23 @@ export default async function webhook(req, res) {
   if (req.method === 'POST') {
     const requestBuffer = await buffer(req);
     const payload = requestBuffer.toString();
-    const sig = req.headers['stripe-signature'];
-
-    let event;
 
     try {
-      event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
     } catch (err) {
       return res.status(400).send(`Webhook Error: ${err.message}`);
     }
 
-    if (event.type === 'checkout.session.completed') {
-      const session = await stripe.checkout.sessions.retrieve(
-        event.data.object.id,
-        { expand: ['line_items'] }
-      );
+    // if () {
 
-      return fulfillOrder(session)
-        .then((order) => {
-          res.status(200).json({ order });
-          console.log('Order created');
-        })
-        .catch((err) =>
-          res.status(400).send(`Prisma Client Error: ${err.message}`)
-        );
-    }
+    //   return fulfillOrder(session)
+    //     .then((order) => {
+    //       res.status(200).json({ order });
+    //       console.log('Order created');
+    //     })
+    //     .catch((err) =>
+    //       res.status(400).send(`Prisma Client Error: ${err.message}`)
+    //     );
+    // }
   }
 }
 

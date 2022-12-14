@@ -47,7 +47,7 @@ export default function Product({ product }) {
   return (
     <div className="container h-fit grid grid-cols-1 lg:grid-cols-3">
       <div className="lg:col-span-2 relative">
-        <div className="flex justify-center p-20 items-center bg-[#cccccc]">
+        <div className="flex justify-center p-20 items-center bg-[#e7f2f5]">
           <Image
             src={product.image_url}
             alt={product.name}
@@ -113,14 +113,14 @@ export default function Product({ product }) {
           </div>
           <button
             type="submit"
-            className="w-fit bg-custom-theme text-white my-2 lg:my-6 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
+            className="w-fit bg-custom-theme text-white my-2 lg:my-5 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
             onClick={addToCart}
           >
             Add to cart
           </button>
           <button
             type="submit"
-            className="w-fit bg-custom-theme text-white my-2 lg:my-6 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
+            className="w-fit bg-custom-theme text-white my-2 lg:my-5 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
           >
             Check out now
           </button>
@@ -133,14 +133,14 @@ export default function Product({ product }) {
 export async function getStaticPaths() {
   const products = await getAvailableProducts();
   const paths = products.map((product) => ({
-    params: { slug: product.id.toString() },
+    params: { slug: product.slug },
   }));
   return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
   const products = await getAvailableProducts();
-  const product = products.find((product) => product.id === params.slug);
+  const product = products.find((product) => product.slug === params.slug);
 
   return {
     props: {

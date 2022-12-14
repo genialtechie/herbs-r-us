@@ -29,11 +29,11 @@ export default function Products({ products, categories }) {
             ))}
           </ul>
         </div>
-        <div className="sm:col-span-2 order-3 p-5 lg:order-none lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-16 gap-y-16 lg:grid-cols-3 lg:gap-8">
+        <div className="sm:col-span-2 order-3 p-5 lg:order-none lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-16 gap-y-16 lg:grid-cols-3 lg:gap-8 auto-rows-max">
           {products.map((product) => (
             <Link
               key={product.id}
-              href={`/products/${product.id}`}
+              href={`/products/${product.slug}`}
             >
               <div
                 key={product.id}
@@ -47,10 +47,10 @@ export default function Products({ products, categories }) {
                   className="rounded-sm object-cover"
                 />
                 <div className="absolute z-10 top-0 left-0 max-w-xs">
-                  <h3 className="text-xl min-w-[150px] px-5 py-2 text-center font-bold bg-black/50 text-white group-hover:bg-custom-theme transition duration-300 ease-in-out">
+                  <h3 className="text-lg lg:text-md min-w-[150px] px-5 py-2 text-left font-bold bg-black/30 text-white group-hover:bg-custom-theme transition duration-300 ease-in-out">
                     {product.name}
                   </h3>
-                  <p className="text-xl w-fit px-5 py-2 bg-black/40 text-white group-hover:bg-custom-theme transition duration-300 ease-in-out">
+                  <p className="text-lg w-fit px-5 py-2 bg-black/30 text-white group-hover:bg-custom-theme transition duration-300 ease-in-out">
                     {product.price} USD
                   </p>
                 </div>
