@@ -27,7 +27,7 @@ const MyDatePicker = ({ selectedDay, setSelectedDay }) => {
       wrapperClassName={styles.DatePicker}
       minimumDate={utils().getToday()}
       colorPrimary="#a128b7"
-      calendarPopperPosition="auto"
+      calendarPopperPosition="top"
       shouldHighlightWeekends
     />
   );

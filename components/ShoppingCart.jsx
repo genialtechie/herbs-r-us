@@ -6,7 +6,7 @@ const ShoppingCart = () => {
   const { state, setCartOpen } = useCart();
 
   return (
-    <span className="relative lg:scale-50 lg:hover:scale-75 hover:scale-110 transition-all duration-200 ease-in-out cursor-pointer mx-3">
+    <span className="relative lg:scale-50 lg:hover:scale-75 scale-90 hover:scale-110 transition-all duration-200 ease-in-out cursor-pointer mx-3">
       <Image
         src={cart}
         alt="cart"

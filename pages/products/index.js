@@ -6,14 +6,33 @@ import {
 } from '../../prisma/queries';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Products({ products, categories }) {
+  const router = useRouter();
+  const editedCategories = [{ name: 'All Products' }, ...categories];
+  const [selectedCategory, setSelectedCategory] = useState('All Products');
+  const [selectedFilter, setSelectedFilter] = useState('');
+
+  useEffect(() => {
+    selectedCategory === 'All Products'
+      ? router.push('/products?category=all')
+      : router.push(`/products?category=${selectedCategory}`);
+  }, [selectedCategory]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    selectedFilter === 'asc'
+      ? router.push('/products?category=all&filter=asc')
+      : router.push('/products?category=all&filter=desc');
+  }, [selectedFilter]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="container h-fit pt-14 pb-14 lg:px-20">
       <div className="grid grid-cols-1 md:grid-cols-5">
-        <div className=" order-1 lg:order-none p-5 text-center lg:text-left">
+        <div className=" order-1 md:order-none lg:p-5 text-center lg:text-left">
           <h1 className="text-xl font-bold text-black">Our Products</h1>
-          <ul className="mt-4">
+          <ul className="mt-4 hidden lg:block">
             <li className="text-lg mx-auto lg:mx-0 w-fit hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer">
               <Link href="/products?category=all">All Products</Link>
             </li>
@@ -28,8 +47,25 @@ export default function Products({ products, categories }) {
               </li>
             ))}
           </ul>
+          <div className="container w-[300px] mx-auto h-fit overflow-hidden">
+            <select
+              className="block lg:hidden mt-4 w-full text-lg text-custom-theme border border-custom-theme rounded-sm p-2"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+            >
+              {editedCategories.map((category) => (
+                <option
+                  key={category.name}
+                  value={category.name}
+                  className="w-[300px] text-sm text-custom-theme"
+                >
+                  {category.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-        <div className="sm:col-span-2 order-3 p-5 lg:order-none lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-16 gap-y-16 lg:grid-cols-3 lg:gap-8 auto-rows-max">
+        <div className="sm:col-span-2 order-3 p-5 md:order-none lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-16 gap-y-16 lg:grid-cols-3 lg:gap-8 auto-rows-max">
           {products.map((product) => (
             <Link
               key={product.id}
@@ -58,9 +94,9 @@ export default function Products({ products, categories }) {
             </Link>
           ))}
         </div>
-        <div className="order-2 lg:order-none p-5 lg:pl-20 mb-10 text-center lg:text-left">
+        <div className="order-2 md:order-none p-5 lg:pl-20 mb-10 text-center lg:text-left">
           <h1 className="text-xl font-bold text-black">Relevance</h1>
-          <ul className="mt-4">
+          <ul className="mt-4 hidden lg:block">
             <li className="text-lg w-fit mx-auto lg:mx-0 hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer">
               <Link href="/products?category=all&filter=asc">
                 Price: Low to High
@@ -72,6 +108,30 @@ export default function Products({ products, categories }) {
               </Link>
             </li>
           </ul>
+          <div className="container w-[300px] mx-auto h-fit overflow-hidden">
+            <select
+              className="block lg:hidden mt-4 w-full text-lg text-custom-theme border border-custom-theme rounded-sm p-2"
+              value={selectedFilter}
+              onChange={(e) => setSelectedFilter(e.target.value)}
+            >
+              <option
+                value=""
+                className="w-[300px] text-sm text-custom-theme"
+              ></option>
+              <option
+                value="asc"
+                className="w-[300px] text-sm text-custom-theme"
+              >
+                Price: Low to High
+              </option>
+              <option
+                value="desc"
+                className="w-[300px] text-sm text-custom-theme"
+              >
+                Price: High to Low
+              </option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

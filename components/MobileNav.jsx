@@ -78,7 +78,7 @@ const MobileNav = () => {
             alt="menu"
             height={60}
             width={60}
-            className="hover:scale-110 transition-all duration-200 ease-in-out cursor-pointer mx-3"
+            className="scale-90 hover:scale-110 transition-all duration-200 ease-in-out cursor-pointer mx-3"
             onClick={() => setIsOpen(!isOpen)}
           />
           <ShoppingCart />
