@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 
 const ShoppingCart = dynamic(() => import('./ShoppingCart'), { ssr: false });
 
-const MobileNav = () => {
+const MobileNav = ({ handleRef }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -43,13 +43,19 @@ const MobileNav = () => {
                 <Link href="/products?category=all">Shop</Link>
               </li>
               <li
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                  handleRef();
+                }}
                 className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-theme cursor-pointer"
               >
                 Contact
               </li>
               <li
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                  handleRef();
+                }}
                 className=" h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-theme cursor-pointer"
               >
                 Get a Quote

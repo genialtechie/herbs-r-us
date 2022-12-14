@@ -47,9 +47,9 @@ const Footer = forwardRef((props, ref) => {
           <p className="mb-2">
             <Link
               className="hover:text-custom-theme hover:scale-110 transition-all duration-200 ease-in-out"
-              href="tel:+31612345678"
+              href="tel:+14045749184"
             >
-              +31 6 12345678
+              +1 (404) 574-9184
             </Link>
           </p>
           <p className="mb-2">
@@ -101,7 +101,7 @@ const Footer = forwardRef((props, ref) => {
               className="w-64 h-10 border-b-[3px] border-0 focus:ring-0 border-gray-400 p-2 bg-inherit placeholder:text-gray-400 outline-none focus:border-custom-theme mb-5"
             />
             <button
-              type="submit"
+              type="reset"
               className="h-fit w-fit px-5 py-2 bg-custom-theme text-white rounded-sm transition-all duration-200 ease-in-out hover:bg-white hover:border hover:border-custom-theme hover:text-custom-theme"
             >
               Submit

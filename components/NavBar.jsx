@@ -4,7 +4,6 @@ import { Roboto } from '@next/font/google';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { useCart } from '../utils/CartContext';
 import logo from '../public/logo.png';
 import MobileNav from './MobileNav';
 
@@ -25,10 +24,9 @@ const NavBar = ({ reference }) => {
   function handleClick() {
     reference.current?.scrollIntoView({ behavior: 'smooth' });
   }
-  const { state, setCartOpen } = useCart();
   return (
     <nav className="w-full text-white h-fit bg-custom-theme flex flex-col lg:flex-row lg:justify-around items-center">
-      <MobileNav />
+      <MobileNav handleRef={handleClick} />
       <h1
         className={`text-5xl ${zen.variable} font-sans py-5 text-center transition-all duration-200 ease-in-out hover:text-custom-gray`}
       >
