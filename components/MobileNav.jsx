@@ -43,13 +43,10 @@ const MobileNav = ({ handleRef }) => {
                 <Link href="/products?category=all">Shop</Link>
               </li>
               <li
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                  handleRef();
-                }}
+                onClick={() => setIsOpen(!isOpen)}
                 className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-theme cursor-pointer"
               >
-                Contact
+                <a href="tel:+14045749184">Contact</a>
               </li>
               <li
                 onClick={() => {
