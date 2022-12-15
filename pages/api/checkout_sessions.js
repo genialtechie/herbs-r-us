@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       note: `Reservation for ${DateConverter(item.rentalDate).toDateString()}}`,
       basePriceMoney: {
         currency: 'USD',
-        amount: item.price * 100,
+        amount: (item.price + 50) * 100,
       },
     }));
 

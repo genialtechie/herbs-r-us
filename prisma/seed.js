@@ -4,32 +4,6 @@ async function main() {
   let jumps = [];
   let concessions = [];
   let slides = [];
-  let categories = [];
-
-  // for (let i = 0; i < 4; i++) {
-  //   products.push({
-  //     name: faker.commerce.product(),
-  //     image_url:
-  //       'https://via.placeholder.com/500.png?text=Product+Image+Placeholder',
-  //     price: Number(faker.commerce.price(100, 500)),
-  //     description: faker.commerce.productDescription(),
-  //   });
-  // }
-
-  // for (let i = 0; i < 3; i++) {
-  //   const category = await prisma.category.create({
-  //     data: {
-  //       name: faker.commerce.department(),
-  //       products: {
-  //         createMany: {
-  //           data: products,
-  //         },
-  //       },
-  //     },
-  //   });
-  //   categories.push(category);
-  // }
-  // console.log({ products: products, categories: categories });
 
   jumps.push({
     name: 'Disney Princess Bounce House',
@@ -92,13 +66,13 @@ async function main() {
   });
 
   slides.push({
-    name: 'Hoop Shoot Water Slide',
+    name: 'Hoop-It-Up Water Slide',
     slug: 'hoop-shoot-water-slide',
     image_url:
       'https://res.cloudinary.com/dpti4rlt1/image/upload/v1670983274/jainflatables/product8_aik3mb.png',
-    price: 300,
+    price: 80,
     description:
-      'The Hoop Shoot Water Slide is a great addition to any party or event. This water slide features a basketball hoop at the top and a built-in pool at the bottom. Order now and let the fun begin!',
+      'The Hoop-It-Up Water Slide is a great addition to any party or event. This water slide features a basketball hoop at the top and a built-in pool at the bottom. Order now and let the fun begin!',
   });
 
   slides.push({
@@ -121,7 +95,27 @@ async function main() {
       'The Popcorn Machine is a great addition to any party or event. This machine features a 6oz kettle and a 50 servings capacity. Order now!',
   });
 
-  const bounces = await prisma.category.create({
+  concessions.push({
+    name: 'Cotton Candy Machine',
+    slug: 'cotton-candy-machine',
+    image_url:
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1671071972/jainflatables/product11_omt6et.png',
+    price: 60,
+    description:
+      'The Cotton Candy Machine is a great addition to any party or event. This machine has a 50 servings capacity. Order now!',
+  });
+
+  concessions.push({
+    name: 'Snow Cone Machine',
+    slug: 'snow-cone-machine',
+    image_url:
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1671071972/jainflatables/product10_t7wyod.png',
+    price: 60,
+    description:
+      'The Snow Cone Machine is a great addition to any party or event. This machine has a 50 servings capacity. Order now!',
+  });
+
+  await prisma.category.create({
     data: {
       name: 'Bounces',
       products: {
@@ -131,9 +125,8 @@ async function main() {
       },
     },
   });
-  categories.push(bounces);
 
-  const waterslides = await prisma.category.create({
+  await prisma.category.create({
     data: {
       name: 'Water Slides',
       products: {
@@ -143,9 +136,8 @@ async function main() {
       },
     },
   });
-  categories.push(waterslides);
 
-  const concession = await prisma.category.create({
+  await prisma.category.create({
     data: {
       name: 'Concessions',
       products: {
@@ -155,7 +147,6 @@ async function main() {
       },
     },
   });
-  categories.push(concession);
 
   console.log('Data seeded successfully');
 }

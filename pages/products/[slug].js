@@ -64,7 +64,7 @@ export default function Product({ product }) {
           </p>
         </div>
       </div>
-      <div className="lg:col-span-1 p-10">
+      <div className="lg:col-span-1 px-10 py-5">
         <p className="mb-5 text-xl">{product.description}</p>
         <form
           onSubmit={(e) => {
@@ -91,6 +91,10 @@ export default function Product({ product }) {
               setSelectedDay={setSelectedDay}
             />
           </label>
+          <p className="my-1 text-gray-500 text-xs">
+            *Please note that there is a refundable security deposit of $50 for
+            each product, see policy for more details.
+          </p>
           <div className="my-3">
             <input
               type="checkbox"
@@ -102,7 +106,7 @@ export default function Product({ product }) {
               className="mr-2 outline-none focus:ring-0 focus:outline-none cursor-pointer"
             />
             <span className="text-sm">
-              I have read & agree to the{' '}
+              I agree to the{' '}
               <Link
                 className="underline hover:text-custom-theme transition duration-300 ease-in-out"
                 href="/policy"

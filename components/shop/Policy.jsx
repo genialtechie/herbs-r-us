@@ -60,7 +60,7 @@ const Policy = () => {
         </h1>
         <ul className="list-disc list-inside mb-10 text-lg">
           <li>
-            We require a $30 security deposit that will be deducted from your
+            We require a $50 security deposit that will be deducted from your
             total billed amount
           </li>
           <li>
@@ -116,7 +116,7 @@ const Policy = () => {
             made before delivery
           </li>
           <li>
-            There will be a $30 cancellation fee for any cancellations made
+            There will be a $50 cancellation fee for any cancellations made
             within 5 days of the rental date or after delivery
           </li>
         </ul>
