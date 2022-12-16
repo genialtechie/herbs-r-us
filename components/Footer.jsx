@@ -21,7 +21,11 @@ const Footer = forwardRef((props, ref) => {
             know.
           </p>
           <div className="flex flex-row justify-start">
-            <Link href="">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.instagram.com/jumparoundinflatables_/"
+            >
               <Image
                 src={instagram}
                 alt="instagram"
@@ -29,16 +33,7 @@ const Footer = forwardRef((props, ref) => {
                 height={50}
                 className="mr-2 scale-90 hover:scale-100 transition-all duration-200 ease-in-out cursor-pointer"
               />
-            </Link>
-            <Link href="">
-              <Image
-                src={facebook}
-                alt="facebook"
-                width={50}
-                height={50}
-                className="mr-2 scale-90 hover:scale-100 transition-all duration-200 ease-in-out cursor-pointer"
-              />
-            </Link>
+            </a>
           </div>
         </div>
         <div className="mb-10 lg:mb-0">
