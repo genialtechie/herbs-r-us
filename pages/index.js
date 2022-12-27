@@ -10,7 +10,7 @@ export default function Home() {
     <div className="h-full w-full container relative">
       <div className="container h-fit">
         <div className="bg-custom-theme text-white">
-          <div className="h-fit p-10 container lg:w-5/6 mx-auto flex flex-col-reverse lg:flex-row pt-14">
+          <div className="h-fit p-10 container lg:w-5/6 mx-auto flex flex-col-reverse lg:flex-row lg:pt-14">
             <div className="h-fit w-full mb-10 lg:mb-0 lg:w-1/2 flex flex-col">
               <div>
                 <h1 className="text-5xl font-serif font-bold text-center lg:text-left mb-5">
@@ -34,7 +34,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="h-fit w-full mb-10 lg:mb-0 lg:w-1/2 flex flex-col items-center lg:items-end">
+            <div className="h-fit w-full mb-10 lg:mb-0 lg:w-1/2 lg:flex lg:flex-col hidden lg:items-end">
               <Image
                 src={carnival}
                 alt="carnival"
