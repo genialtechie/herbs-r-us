@@ -167,8 +167,7 @@ export default function Home() {
               <div className="rounded-lg shadow-lg p-5 flex flex-col justify-center">
                 <blockquote className="text-md font-serif text-center">
                   We very satisfied with their prompt, friendly and flexible
-                  service. They let me know that I matter as a customer unlike
-                  some of the other companies.
+                  service. They let me know that I matter as a customer.
                 </blockquote>
                 <p className="text-md font-serif text-center mt-2">
                   - Tanya S. <br />

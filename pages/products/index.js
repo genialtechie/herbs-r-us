@@ -33,7 +33,7 @@ export default function Products({ products, categories }) {
     <div className="h-fit w-full pt-14 pb-14 lg:px-20">
       <div className="grid grid-cols-1 lg:grid-cols-4">
         <div className="order-1 mb-10 lg:mb-0 lg:order-none lg:p-5 text-center lg:text-left">
-          <div className="lg:mb-14">
+          <div className="lg:mb-14 mb-10">
             <h1 className="text-xl font-bold text-black">Our Products</h1>
             <ul className="mt-4 hidden lg:block">
               <li className="text-lg mx-auto lg:mx-0 w-fit hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer">
