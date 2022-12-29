@@ -27,24 +27,21 @@ const NavBar = ({ reference }) => {
   return (
     <nav className="w-full text-white h-fit bg-custom-theme flex flex-col lg:flex-row lg:justify-around items-center">
       <MobileNav handleRef={handleClick} />
-      <h1
-        className={`text-5xl ${zen.variable} font-sans py-5 text-center transition-all duration-200 ease-in-out hover:text-custom-gray`}
-      >
-        <Link href="/">
-          <Image
-            src={logo}
-            alt="logo"
-            height={110}
-            width={150}
-            className="cursor-pointer scale-125 scale-x-150 ml-2"
-          />
-        </Link>
-      </h1>
+
+      <Link href="/">
+        <Image
+          src={logo}
+          alt="logo"
+          height={110}
+          width={150}
+          className="cursor-pointer hidden lg:block lg:scale-125 lg:scale-x-150 lg:my-10 ml-2"
+        />
+      </Link>
       <ul
         className={`hidden lg:flex flex-row h-fit w-2/5 justify-around items-center text-xl ${roboto.variable} font-serif`}
       >
         <li className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer">
-          <Link href="/about">About Us</Link>
+          <Link href="/about">About</Link>
         </li>
         <li className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer">
           <Link href="/products?category=all">Shop</Link>

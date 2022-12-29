@@ -45,7 +45,7 @@ export default function Product({ product }) {
   };
 
   return (
-    <div className="container h-fit grid grid-cols-1 lg:grid-cols-3">
+    <div className="w-full h-fit grid grid-cols-1 lg:grid-cols-3">
       <div className="lg:col-span-2 relative">
         <div className="flex justify-center p-20 items-center bg-[#e7f2f5]">
           <Image
@@ -56,16 +56,16 @@ export default function Product({ product }) {
           />
         </div>
         <div className="absolute top-0 left-0 max-w-xl">
-          <h3 className="text-3xl px-8 py-4 font-extrabold min-w-[200px] text-center bg-custom-theme/80 lg:bg-custom-theme text-white">
+          <h3 className="text-3xl px-8 py-4 font-extrabold min-w-[200px] text-center bg-custom-theme/70 lg:bg-custom-theme text-white">
             {product.name}
           </h3>
-          <p className="text-xl w-fit px-8 py-4 bg-custom-theme/80 lg:bg-custom-theme text-white">
+          <p className="text-xl w-fit px-8 py-4 bg-custom-theme/70 lg:bg-custom-theme text-white">
             {product.price} USD
           </p>
         </div>
       </div>
-      <div className="lg:col-span-1 px-10 py-5">
-        <p className="mb-5 text-xl">{product.description}</p>
+      <div className="lg:col-span-1 px-5 lg:px-10 py-5">
+        <p className="mb-5 text-lg lg:text-xl">{product.description}</p>
         <form
           onSubmit={(e) => {
             e.preventDefault();

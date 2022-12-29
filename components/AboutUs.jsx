@@ -22,7 +22,7 @@ const AboutUs = () => {
             located in McDonough, GA. We have been in business since 2005 and
             have been crafting memorable events for over 15 years.
           </p>
-          <h1 className="text-4xl font-serif font-bold text-center my-10 text-blue-700">
+          <h1 className="text-4xl font-serif font-bold text-center lg:text-left my-10 text-blue-700">
             Our Approach
           </h1>
           <h1 className="text-2xl font-serif font-bold mb-4">

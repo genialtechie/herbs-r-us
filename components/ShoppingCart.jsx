@@ -6,7 +6,7 @@ const ShoppingCart = () => {
   const { state, setCartOpen } = useCart();
 
   return (
-    <span className="relative lg:scale-50 lg:hover:scale-75 scale-90 hover:scale-110 transition-all duration-200 ease-in-out cursor-pointer mx-3">
+    <span className="relative lg:scale-50 lg:hover:scale-75 scale-90 hover:scale-110 transition-all duration-200 ease-in-out cursor-pointer mx-3 h-fit">
       <Image
         src={cart}
         alt="cart"
@@ -15,9 +15,12 @@ const ShoppingCart = () => {
         className=""
         onClick={() => setCartOpen(true)}
       />
-      <span className="bg-blue-700 text-sm rounded-full py-1 px-2 absolute bottom-1 left-0">
-        {state.cart.reduce((acc, item) => acc + item.quantity, 0)}
-      </span>
+
+      {state.cart.length > 0 ? (
+        <span className="bg-blue-700 text-sm rounded-full py-1 px-2 absolute bottom-1 left-0">
+          {state.cart.reduce((acc, item) => acc + item.quantity, 0)}
+        </span>
+      ) : null}
     </span>
   );
 };

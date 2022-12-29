@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import carnival from '../public/carnival.png';
+import planning from '../public/schedule-planning.svg';
 import event from '../public/event.jpg';
 import testimonial from '../public/testimonials.svg';
 import star from '../public/star.svg';
@@ -7,9 +8,9 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="h-full w-full container relative">
-      <div className="container h-fit">
-        <div className="bg-custom-theme text-white">
+    <div className="h-full w-full lg:relative">
+      <div className="w-full h-fit">
+        <div className="bg-custom-theme text-white w-full">
           <div className="h-fit p-10 container lg:w-5/6 mx-auto flex flex-col-reverse lg:flex-row lg:pt-14">
             <div className="h-fit w-full mb-10 lg:mb-0 lg:w-1/2 flex flex-col">
               <div>
@@ -36,8 +37,8 @@ export default function Home() {
             </div>
             <div className="h-fit w-full mb-10 lg:mb-0 lg:w-1/2 lg:flex lg:flex-col hidden lg:items-end">
               <Image
-                src={carnival}
-                alt="carnival"
+                src={planning}
+                alt="event-planning"
                 height={400}
                 width={400}
                 className="scale-95"
@@ -45,17 +46,17 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mt-14 p-10 container lg:w-4/5 lg:mx-auto flex flex-col-reverse lg:items-center lg:flex-row mb-14">
+        <div className="mt-14 p-10 container mx-auto lg:w-4/5 lg:mx-auto flex flex-col lg:items-center lg:flex-row lg:mb-14">
           <div className="h-fit w-full lg:w-1/2">
             <Image
               src={event}
               alt="event"
               height={400}
               width={400}
-              className="scale-105 object-cover object-center rounded-lg"
+              className="scale-105 object-cover object-center rounded-lg mx-auto mb-14"
             />
           </div>
-          <div className="h-fit w-full lg:w-1/2 mb-10 lg:mb-0">
+          <div className="h-fit w-full lg:w-1/2 lg:mb-0">
             <h1 className="text-3xl font-serif font-bold text-center lg:text-left mb-5">
               Sit back and let us{' '}
               <span className="text-custom-theme">plan your event</span>
@@ -77,7 +78,7 @@ export default function Home() {
           </div>
         </div>
         <hr className="w-4/5 mx-auto h-1 bg-custom-theme" />
-        <div className="lg:mt-10 text-custom-gray p-10 container lg:w-4/5 lg:mx-auto flex flex-col">
+        <div className="lg:mt-10 text-custom-gray p-10 container lg:w-4/5 mx-auto flex flex-col">
           <Image
             src={testimonial}
             alt="testimonial"
@@ -210,7 +211,7 @@ export default function Home() {
             alt="illustration of a carnival"
             width={500}
             height={500}
-            className="absolute mx-auto inset-x-0 lg:mx-0 lg:inset-x-auto scale-50 lg:scale-95"
+            className="absolute mx-auto inset-x-0 lg:mx-0 lg:inset-x-auto lg:scale-95"
           />
         </div>
       </div>

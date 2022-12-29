@@ -22,50 +22,93 @@ export default function Products({ products, categories }) {
   }, [selectedCategory]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    selectedFilter === 'asc'
-      ? router.push('/products?category=all&filter=asc')
-      : router.push('/products?category=all&filter=desc');
+    if (selectedFilter === 'asc') {
+      router.push('/products?category=all&filter=asc');
+    } else if (selectedFilter === 'desc') {
+      router.push('/products?category=all&filter=desc');
+    }
   }, [selectedFilter]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="container h-fit pt-14 pb-14 lg:px-20">
-      <div className="grid grid-cols-1 md:grid-cols-5">
-        <div className=" order-1 md:order-none lg:p-5 text-center lg:text-left">
-          <h1 className="text-xl font-bold text-black">Our Products</h1>
-          <ul className="mt-4 hidden lg:block">
-            <li className="text-lg mx-auto lg:mx-0 w-fit hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer">
-              <Link href="/products?category=all">All Products</Link>
-            </li>
-            {categories.map((category) => (
-              <li
-                key={category.id}
-                className="text-lg mx-auto lg:mx-0 w-fit hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer"
+    <div className="h-fit w-full pt-14 pb-14 lg:px-20">
+      <div className="grid grid-cols-1 lg:grid-cols-4">
+        <div className="order-1 mb-10 lg:mb-0 lg:order-none lg:p-5 text-center lg:text-left">
+          <div className="lg:mb-14">
+            <h1 className="text-xl font-bold text-black">Our Products</h1>
+            <ul className="mt-4 hidden lg:block">
+              <li className="text-lg mx-auto lg:mx-0 w-fit hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer">
+                <Link href="/products?category=all">All Products</Link>
+              </li>
+              {categories.map((category) => (
+                <li
+                  key={category.id}
+                  className="text-lg mx-auto lg:mx-0 w-fit hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer"
+                >
+                  <Link href={`/products?category=${category.name}`}>
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="container w-[300px] mx-auto h-fit overflow-hidden">
+              <select
+                className="block lg:hidden mt-4 w-full text-lg text-custom-theme border border-custom-theme rounded-sm p-2"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
               >
-                <Link href={`/products?category=${category.name}`}>
-                  {category.name}
+                {editedCategories.map((category) => (
+                  <option
+                    key={category.name}
+                    value={category.name}
+                    className="w-[300px] text-sm text-custom-theme"
+                  >
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-black">Relevance</h1>
+            <ul className="mt-4 hidden lg:block">
+              <li className="text-lg w-fit mx-auto lg:mx-0 hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer">
+                <Link href="/products?category=all&filter=asc">
+                  Price: Low to High
                 </Link>
               </li>
-            ))}
-          </ul>
-          <div className="container w-[300px] mx-auto h-fit overflow-hidden">
-            <select
-              className="block lg:hidden mt-4 w-full text-lg text-custom-theme border border-custom-theme rounded-sm p-2"
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-            >
-              {editedCategories.map((category) => (
+              <li className="text-lg w-fit mx-auto lg:mx-0 hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer">
+                <Link href="/products?category=all&filter=desc">
+                  Price: High to Low
+                </Link>
+              </li>
+            </ul>
+            <div className="container w-[300px] mx-auto h-fit overflow-hidden">
+              <select
+                className="block lg:hidden mt-4 w-full text-lg text-custom-theme border border-custom-theme rounded-sm p-2"
+                value={selectedFilter}
+                onChange={(e) => setSelectedFilter(e.target.value)}
+              >
                 <option
-                  key={category.name}
-                  value={category.name}
+                  value=""
+                  className="w-[300px] text-sm text-custom-theme"
+                ></option>
+                <option
+                  value="asc"
                   className="w-[300px] text-sm text-custom-theme"
                 >
-                  {category.name}
+                  Price: Low to High
                 </option>
-              ))}
-            </select>
+                <option
+                  value="desc"
+                  className="w-[300px] text-sm text-custom-theme"
+                >
+                  Price: High to Low
+                </option>
+              </select>
+            </div>
           </div>
         </div>
-        <div className="sm:col-span-2 order-3 p-5 md:order-none lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-16 gap-y-16 lg:grid-cols-3 lg:gap-8 auto-rows-max">
+        <div className="sm:col-span-2 order-2 p-5 lg:order-none lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-16 gap-y-16 lg:grid-cols-3 lg:gap-8 auto-rows-max">
           {products.map((product) => (
             <Link
               key={product.id}
@@ -93,45 +136,6 @@ export default function Products({ products, categories }) {
               </div>
             </Link>
           ))}
-        </div>
-        <div className="order-2 md:order-none p-5 lg:pl-20 mb-10 text-center lg:text-left">
-          <h1 className="text-xl font-bold text-black">Relevance</h1>
-          <ul className="mt-4 hidden lg:block">
-            <li className="text-lg w-fit mx-auto lg:mx-0 hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer">
-              <Link href="/products?category=all&filter=asc">
-                Price: Low to High
-              </Link>
-            </li>
-            <li className="text-lg w-fit mx-auto lg:mx-0 hover:text-custom-theme transition-all duration-300 ease-in hover:cursor-pointer">
-              <Link href="/products?category=all&filter=desc">
-                Price: High to Low
-              </Link>
-            </li>
-          </ul>
-          <div className="container w-[300px] mx-auto h-fit overflow-hidden">
-            <select
-              className="block lg:hidden mt-4 w-full text-lg text-custom-theme border border-custom-theme rounded-sm p-2"
-              value={selectedFilter}
-              onChange={(e) => setSelectedFilter(e.target.value)}
-            >
-              <option
-                value=""
-                className="w-[300px] text-sm text-custom-theme"
-              ></option>
-              <option
-                value="asc"
-                className="w-[300px] text-sm text-custom-theme"
-              >
-                Price: Low to High
-              </option>
-              <option
-                value="desc"
-                className="w-[300px] text-sm text-custom-theme"
-              >
-                Price: High to Low
-              </option>
-            </select>
-          </div>
         </div>
       </div>
     </div>

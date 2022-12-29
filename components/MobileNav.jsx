@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import close from '../public/close.svg';
 import dynamic from 'next/dynamic';
+import logo from '../public/logo.png';
 
 const ShoppingCart = dynamic(() => import('./ShoppingCart'), { ssr: false });
 
@@ -75,15 +76,24 @@ const MobileNav = ({ handleRef }) => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-row justify-between lg:hidden mb-2 mt-8 w-11/12">
+        <div className="flex flex-row justify-between items-center lg:hidden my-2 w-11/12">
           <Image
             src={menu}
             alt="menu"
             height={60}
             width={60}
-            className="scale-90 hover:scale-110 transition-all duration-200 ease-in-out cursor-pointer mx-3"
+            className="scale-90 hover:scale-110 transition-all duration-200 ease-in-out cursor-pointer mx-3 h-fit"
             onClick={() => setIsOpen(!isOpen)}
           />
+          <Link href="/">
+            <Image
+              src={logo}
+              alt="logo"
+              height={110}
+              width={150}
+              className="cursor-pointer"
+            />
+          </Link>
           <ShoppingCart />
         </div>
       )}
