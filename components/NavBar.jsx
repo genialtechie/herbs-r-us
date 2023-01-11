@@ -40,21 +40,21 @@ const NavBar = ({ reference }) => {
       <ul
         className={`hidden lg:flex flex-row h-fit w-2/5 justify-around items-center text-xl ${roboto.variable} font-serif`}
       >
-        <li className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer">
+        <li className="h-fit px-5 py-2 navbtn relative cursor-pointer">
           <Link href="/about">About</Link>
         </li>
-        <li className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer">
+        <li className="h-fit px-5 py-2 navbtn relative cursor-pointer">
           <Link href="/products?category=all">Shop</Link>
         </li>
         <li
           onClick={handleClick}
-          className="h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer"
+          className="h-fit px-5 py-2 navbtn relative cursor-pointer"
         >
           Contact
         </li>
         <li
           onClick={handleClick}
-          className=" h-fit px-5 py-2 rounded-sm transition-all duration-200 ease-in-out hover:text-custom-gray cursor-pointer"
+          className=" h-fit px-5 py-2 navbtn relative cursor-pointer"
         >
           Get a Quote
         </li>

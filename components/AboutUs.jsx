@@ -7,7 +7,7 @@ import Image from 'next/image';
 const AboutUs = () => {
   return (
     <div>
-      <h1 className="text-5xl font-bold font-serif text-center mt-10 text-custom-theme">
+      <h1 className="text-5xl font-bold font-sans text-center mt-10 text-custom-theme">
         About Us
       </h1>
       <div className="container lg:w-4/5 mx-auto flex flex-col">
@@ -22,7 +22,7 @@ const AboutUs = () => {
             located in McDonough, GA. We have been in business since 2005 and
             have been crafting memorable events for over 15 years.
           </p>
-          <h1 className="text-4xl font-serif font-bold text-center lg:text-left my-10 text-blue-700">
+          <h1 className="text-3xl font-serif font-bold text-center lg:text-left my-7 text-blue-700">
             Our Approach
           </h1>
           <h1 className="text-2xl font-serif font-bold mb-4">

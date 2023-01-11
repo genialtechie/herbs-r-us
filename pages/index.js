@@ -1,44 +1,71 @@
 import Image from 'next/image';
 import carnival from '../public/carnival.png';
-import planning from '../public/schedule-planning.svg';
+import bouncy from '../public/bouncy.gif';
 import event from '../public/event.jpg';
-import testimonial from '../public/testimonials.svg';
+import likes from '../public/likes.gif';
 import star from '../public/star.svg';
 import Link from 'next/link';
+import StylishBtn from '../components/StylishBtn';
 
 export default function Home() {
   return (
     <div className="h-full w-full lg:relative">
       <div className="w-full h-fit">
         <div className="bg-custom-theme text-white w-full">
-          <div className="h-fit p-10 container lg:w-5/6 mx-auto flex flex-col-reverse lg:flex-row lg:pt-14">
-            <div className="h-fit w-full mb-10 lg:mb-0 lg:w-1/2 flex flex-col">
+          <div className="h-fit p-4 container md:w-5/6 mx-auto flex flex-col-reverse md:flex-row md:items-center ">
+            <div className="h-fit w-full mb-10 md:mb-0 md:w-1/2 flex flex-col">
               <div>
-                <h1 className="text-5xl font-serif font-bold text-center lg:text-left mb-5">
-                  Your events are our business
+                <h1 className="tracking-wide text-5xl md:text-5xl font-sans font-bold text-center md:text-left mb-5">
+                  <span className="text-red-400">Y</span>
+                  <span className="text-blue-500">o</span>
+                  <span className="text-red-500">u</span>
+                  <span className="text-yellow-500">r</span>
+                  <span> </span>
+                  <span className="text-green-500">p</span>
+                  <span className="text-purple-500">a</span>
+                  <span className="text-pink-500">r</span>
+                  <span className="text-blue-500">t</span>
+                  <span className="text-red-500">i</span>
+                  <span className="text-yellow-500">e</span>
+                  <span className="text-green-500">s</span>
+                  <span> </span>
+                  <span className="text-pink-500">a</span>
+                  <span className="text-blue-500">r</span>
+                  <span className="text-red-500">e</span>
+                  <span> </span>
+                  <span className="text-green-500">o</span>
+                  <span className="text-purple-500">u</span>
+                  <span className="text-pink-500">r</span>
+                  <span> </span>
+                  <span className="text-red-500">b</span>
+                  <span className="text-yellow-500">u</span>
+                  <span className="text-green-500">s</span>
+                  <span className="text-purple-500">i</span>
+                  <span className="text-pink-500">n</span>
+                  <span className="text-blue-500">e</span>
+                  <span className="text-red-500">s</span>
+                  <span className="text-yellow-500">s</span>
                 </h1>
-                <p className="text-lg font-serif text-center lg:text-left">
+                <p className="md:text-lg px-2 font-serif text-center md:text-left">
                   We specialize in making you happy by delivering Moon Bounces,
                   Slides, Games, Concessions or Hosting Princess Parties of your
                   choice. We cater to birthday parties, picnics, carnivals,
-                  church and school fund raisers. Our priority is to provide
-                  excellent service as well as clean, safe, and fun products to
-                  make your event memorable.
+                  church and school fund raisers.{' '}
+                  <span className="md:hidden lg:inline">
+                    Our priority is to provide excellent service as well as
+                    clean, safe, and fun products to make your event memorable.
+                  </span>
                 </p>
-                <div className="mx-auto lg:mx-0 w-fit h-fit">
-                  <button className="font-serif mx-2 text-lg rounded-md h-fit w-fit px-5 py-2 mt-5 transition-all duration-200 ease-in-out hover:bg-white hover:text-custom-theme border border-white">
-                    <Link href="/about">Learn More</Link>
-                  </button>
-                  <button className="font-serif mx-2 text-lg rounded-md h-fit w-fit px-5 py-2 mt-5 transition-all duration-200 ease-in-out hover:bg-white hover:text-custom-theme border border-white">
-                    <Link href="/products">Shop</Link>
-                  </button>
+                <div className="mx-auto flex flex-row md:mx-0 w-fit h-fit">
+                  <StylishBtn href="/about">Learn More</StylishBtn>
+                  <StylishBtn href="/products">Shop</StylishBtn>
                 </div>
               </div>
             </div>
-            <div className="h-fit w-full mb-10 lg:mb-0 lg:w-1/2 lg:flex lg:flex-col hidden lg:items-end">
+            <div className="h-fit w-full mb-10 md:mb-0 md:w-1/2 md:flex md:flex-col hidden md:items-end">
               <Image
-                src={planning}
-                alt="event-planning"
+                src={bouncy}
+                alt="bounce house"
                 height={400}
                 width={400}
                 className="scale-95"
@@ -53,13 +80,13 @@ export default function Home() {
               alt="event"
               height={400}
               width={400}
-              className="scale-105 object-cover object-center rounded-lg mx-auto mb-14"
+              className="scale-105 object-cover object-center rounded-xl mx-auto mb-14 lg:mb-0"
             />
           </div>
           <div className="h-fit w-full lg:w-1/2 lg:mb-0">
-            <h1 className="text-3xl font-serif font-bold text-center lg:text-left mb-5">
-              Sit back and let us{' '}
-              <span className="text-custom-theme">plan your event</span>
+            <h1 className="text-3xl font-sans font-bold text-center lg:text-left mb-5">
+              <span className="relative call-to-action">Sit back</span> and let
+              us <span className="text-custom-theme">plan your event</span>
             </h1>
             <p className="text-lg font-serif text-center lg:text-left mb-2">
               Jump Around Inflatables is a family owned and operated business
@@ -78,15 +105,15 @@ export default function Home() {
           </div>
         </div>
         <hr className="w-4/5 mx-auto h-1 bg-custom-theme" />
-        <div className="lg:mt-10 text-custom-gray p-10 container lg:w-4/5 mx-auto flex flex-col">
+        <div className="lg:mt-2 text-custom-gray p-10 container lg:w-4/5 mx-auto flex flex-col">
           <Image
-            src={testimonial}
-            alt="testimonial"
-            height={60}
-            width={60}
-            className="scale-105 mb-8 lg:my-5 mx-auto"
+            src={likes}
+            alt="customer reviews"
+            height={100}
+            width={100}
+            className="scale-150 mb-8 lg:my-5 mx-auto"
           />
-          <h1 className="text-3xl font-serif font-bold text-center mb-8">
+          <h1 className="text-3xl font-sans font-bold text-center mb-3 lg:mb-8">
             What our customers are saying
           </h1>
           <div className="container lg:w-5/6 mx-auto grid auto-rows-min grid-cols-1 lg:grid-rows-1 lg:grid-cols-2 gap-10">
@@ -128,10 +155,10 @@ export default function Home() {
                   className="scale-125 mr-2"
                 />
               </div>
-              <h1 className="text-4xl font-bold mb-5 text-center lg:text-left">
+              <h1 className="text-4xl font-bold mb-5 font-sans text-center lg:text-left">
                 People love us
               </h1>
-              <p className="text-2xl font-bold font-serif text-center lg:text-left mb-5">
+              <p className="text-2xl font-bold font-sans text-center lg:text-left mb-5">
                 (and we love them too!)
               </p>
               <p className="text-lg font-serif text-center lg:text-left mb-5">
@@ -192,15 +219,15 @@ export default function Home() {
       <div className="container w-full h-72 hidden lg:block"></div>
       <div className="absolute mx-auto inset-x-0 container h-fit w-4/5 bg-custom-theme px-12 p-5 -bottom-10 z-40 rounded-xl text-white hidden flex-row lg:flex justify-around">
         <div>
-          <h1 className="font-bold text-4xl py-4 ">
+          <h1 className="font-bold font-sans text-4xl py-4 ">
             Jump in <span className="text-custom-gray">the party bus!</span>
           </h1>
-          <p className="text-lg py-4">
+          <p className="text-lg py-4 font-serif">
             We are not afraid of challenges. On the contrary, we love to
             challenge what we think we already know. Because only then can we
             create the best results for our clients.
           </p>
-          <button className="border border-white rounded-sm transition-all duration-200 hover:bg-white hover:text-custom-theme h-fit w-fit px-5 py-2">
+          <button className="font-serif bg-transparent border border-white rounded-full transition-all duration-200 hover:bg-white hover:text-custom-theme h-fit w-fit px-5 py-2">
             <a href="mailto:jumparoundinfl@yahoo.com">Contact us</a>
           </button>
         </div>

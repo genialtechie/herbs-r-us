@@ -4,6 +4,12 @@ import Head from 'next/head';
 import { Roboto } from '@next/font/google';
 import Cart from './shop/Cart';
 import { useRef } from 'react';
+import { Fredoka_One } from '@next/font/google';
+
+const rubik = Fredoka_One({
+  weight: '400',
+  variable: '--font-rubik',
+});
 
 const roboto = Roboto({
   weight: '400',
@@ -26,13 +32,15 @@ export default function Layout({ children }) {
         />
       </Head>
       <NavBar reference={mainRef} />
-      <main className={`${roboto.variable} font-serif`}>
+      <main
+        className={`${roboto.variable} font-serif ${rubik.variable} font-sans`}
+      >
         {children}
         <Cart />
       </main>
       <Footer
         ref={mainRef}
-        className={`${roboto.variable} font-serif`}
+        className={`${roboto.variable} font-serif ${rubik.variable} font-sans`}
       />
     </>
   );

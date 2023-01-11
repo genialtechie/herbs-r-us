@@ -6,11 +6,16 @@ import facebook from '../public/facebook.svg';
 
 const Footer = forwardRef((props, ref) => {
   return (
-    <footer className="w-full h-fit text-black bg-[#edf2f4]  relative bottom-0 right-0 overflow-y-hidden">
-      <h1 className="text-4xl px-5 lg:px-1 pt-10 lg:pt-24 lg:pb-14 font-bold text-center">
+    <footer
+      className={
+        props.className +
+        ' w-full h-fit text-black bg-[#edf2f4]  relative bottom-0 right-0 overflow-y-hidden'
+      }
+    >
+      <h1 className="text-4xl px-5 lg:px-1 pt-10 lg:pt-24 lg:pb-14 font-bold font-sans text-center">
         We make us in <span className="text-custom-theme">happy customers</span>
       </h1>
-      <div className="w-4/5 mx-auto p-5 my-5 flex flex-col lg:flex-row justify-around">
+      <div className="font-serif w-4/5 mx-auto p-5 my-5 flex flex-col lg:flex-row justify-around">
         <div className="mb-10 lg:mb-0 text-center lg:text-left">
           <h1 className="font-bold mb-3">We guide you to a succesful event</h1>
           <p className="mb-2 w-56 mx-auto lg:mx-0">
@@ -98,7 +103,7 @@ const Footer = forwardRef((props, ref) => {
             />
             <button
               type="reset"
-              className="h-fit w-fit px-5 py-2 bg-custom-theme text-white rounded-sm transition-all duration-200 ease-in-out hover:bg-white hover:border hover:border-custom-theme hover:text-custom-theme"
+              className="h-fit w-fit px-5 py-2 bg-custom-theme text-white rounded-full transition-all duration-200 ease-in-out hover:bg-white hover:border hover:border-custom-theme hover:text-custom-theme"
             >
               Submit
             </button>
