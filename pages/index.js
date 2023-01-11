@@ -57,7 +57,7 @@ export default function Home() {
                   </span>
                 </p>
                 <div className="mx-auto flex flex-row md:mx-0 w-fit h-fit">
-                  <StylishBtn href="/about">Learn More</StylishBtn>
+                  <StylishBtn href="/about">About</StylishBtn>
                   <StylishBtn href="/products">Shop</StylishBtn>
                 </div>
               </div>
