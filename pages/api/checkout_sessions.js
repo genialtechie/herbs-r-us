@@ -23,7 +23,10 @@ function runMiddleware(req, res, fn) {
 
 // Initializing the square client
 const client = new Client({
-  environment: Environment.Sandbox,
+  environment:
+    process.env.NODE_ENV === 'production'
+      ? Environment.Production
+      : Environment.Sandbox,
   accessToken: process.env.SQUARE_ACCESS_TOKEN,
 });
 
