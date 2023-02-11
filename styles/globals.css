@@ -25,6 +25,15 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
 .custom-number-input input:focus {
   outline: none !important;
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useCart } from '../../utils/CartContext';
 import close from '../../public/close.svg';
 import Image from 'next/image';
-import { DateConverter } from '../../utils/DateConverter';
+import Button from '../Button';
 
 const Cart = () => {
   const { state, dispatch, cartOpen, setCartOpen } = useCart();
@@ -119,17 +119,6 @@ const Cart = () => {
                     </span>
                     <span className="ml-4 mb-6">${item.price}</span>
                   </div>
-                  <div className="p-1 px-4 w-full border-b-2">
-                    {DateConverter(item.rentalDate).toLocaleDateString(
-                      'en-US',
-                      {
-                        weekday: 'long',
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      }
-                    )}
-                  </div>
                 </div>
               ))}
             </div>
@@ -149,13 +138,12 @@ const Cart = () => {
               <span className="text-lg">Taxes</span>
               <span>Calculated at checkout</span>
             </div>
-            <button
-              type="submit"
-              className="w-full bg-custom-theme text-white my-2 lg:my-4 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
+            <Button
+              className="mx-auto"
               onClick={handleCheckout}
             >
               Proceed to Checkout
-            </button>
+            </Button>
           </div>
         </div>
       </div>
