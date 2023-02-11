@@ -9,12 +9,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-rubik)', ...fontFamily.sans],
-        serif: ['var(--font-roboto)', ...fontFamily.serif],
+        sans: ['var(--font-sat)', ...fontFamily.sans],
+        serif: ['var(--font-crim)', ...fontFamily.serif],
       },
       colors: {
-        'custom-theme': '#a128b7',
-        'custom-gray': '#2d2e33',
+        theme: '#fe3737',
+        green: '#30b66e',
       },
     },
   },

@@ -1,19 +1,18 @@
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Head from 'next/head';
-import { Roboto } from '@next/font/google';
 import Cart from './shop/Cart';
 import { useRef } from 'react';
-import { Fredoka_One } from '@next/font/google';
+import { Satisfy, Nunito } from '@next/font/google';
 
-const rubik = Fredoka_One({
+const sat = Satisfy({
   weight: '400',
-  variable: '--font-rubik',
+  variable: '--font-sat',
 });
 
-const roboto = Roboto({
+const crim = Nunito({
   weight: '400',
-  variable: '--font-roboto',
+  variable: '--font-crim',
 });
 
 export default function Layout({ children }) {
@@ -21,10 +20,10 @@ export default function Layout({ children }) {
   return (
     <>
       <Head>
-        <title>Jump Around Inflatables</title>
+        <title>Herbs R Us - Your One-Stop Shop for All Things Herbal</title>
         <meta
           name="description"
-          content="This is the website for Jump Around Inflatables, we specialize in making you happy by delivering Moon Bounces, Slides, Games, Concessions or Hosting Princess Parties of your choice. We cater to birthday parties, picnics, carnivals, church and school fund raisers. Our priority is to provide excellent service as well as clean, safe, and fun products to make your event memorable."
+          content="Welcome to the website for Herbs R Us, the premier online destination for all your herbal needs. Our mission is to bring you the finest selection of natural herbs and supplements, so you can live a healthier and more vibrant life."
         />
         <link
           rel="icon"
@@ -32,15 +31,13 @@ export default function Layout({ children }) {
         />
       </Head>
       <NavBar reference={mainRef} />
-      <main
-        className={`${roboto.variable} font-serif ${rubik.variable} font-sans`}
-      >
+      <main className={`${crim.variable} font-serif ${sat.variable} font-sans`}>
         {children}
         <Cart />
       </main>
       <Footer
         ref={mainRef}
-        className={`${roboto.variable} font-serif ${rubik.variable} font-sans`}
+        className={`${crim.variable} font-serif ${sat.variable} font-sans`}
       />
     </>
   );

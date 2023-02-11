@@ -1,21 +1,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getAvailableProducts } from '../../prisma/queries';
 import QtyInput from '../../components/shop/QtyInput';
 import { useCart } from '../../utils/CartContext';
 
-const MyDatePicker = dynamic(
-  () => import('../../components/shop/MyDatePicker'),
-  {
-    ssr: false,
-  }
-);
-
 export default function Product({ product }) {
-  const [selectedDay, setSelectedDay] = useState(null);
   const [qty, setQty] = useState(1);
   const [policy, setPolicy] = useState(false);
   const { dispatch, setCartOpen } = useCart();
@@ -29,17 +20,13 @@ export default function Product({ product }) {
   }
 
   const addToCart = () => {
-    if (!selectedDay) {
-      alert('Please select a date');
-      return;
-    }
     if (!policy) {
       alert('Please agree to the rental policy');
       return;
     }
     dispatch({
       type: 'ADD_TO_CART',
-      payload: { ...product, quantity: qty, rentalDate: selectedDay },
+      payload: { ...product, quantity: qty },
     });
     setCartOpen(true);
   };
@@ -79,22 +66,6 @@ export default function Product({ product }) {
             value={qty}
             setValue={setQty}
           />
-          <label
-            htmlFor="rentalStart"
-            className="my-4 mb-5 block"
-          >
-            <span className="font-semibold block text-md text-gray-700">
-              Date
-            </span>
-            <MyDatePicker
-              selectedDay={selectedDay}
-              setSelectedDay={setSelectedDay}
-            />
-          </label>
-          <p className="my-1 text-gray-500 text-xs">
-            *Please note that there is a refundable security deposit of $50 for
-            each product, see policy for more details.
-          </p>
           <div className="my-3">
             <input
               type="checkbox"
