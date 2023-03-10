@@ -80,7 +80,7 @@ export default function Products({ products, categories }) {
                   alt={product.name}
                   width={500}
                   height={500}
-                  className="rounded-sm w-[250px] h-[250px] object-cover"
+                  className="rounded-sm w-[500px] h-[500px] object-cover"
                 />
                 <div className="absolute z-10 top-0 left-0 max-w-xs">
                   <h3 className="text-lg lg:text-md min-w-[150px] px-5 py-2 text-left font-bold bg-black/30 text-brown group-hover:bg-custom-theme transition duration-300 ease-in-out">
