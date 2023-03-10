@@ -92,8 +92,8 @@ export default function Home({ products }) {
           <p className="font-semibold">- Sarah M.</p>
         </ReviewCard>
       </div>
-      <div className="h-fit lg:h-fit w-full flex flex-col lg:flex-row">
-        <div className="w-full h-fit lg:w-1/2 bg-green p-5 py-10 md:p-10 lg:p-20 flex flex-col justify-center">
+      <div className="h-[500px] w-full flex flex-col lg:flex-row">
+        <div className="w-full h-full lg:w-1/2 bg-brown p-5 py-10 md:p-10 lg:p-20 flex flex-col justify-center">
           <h2 className="text-3xl lg:text-5xl text-white font-bold mb-5 font-sans">
             Healthy living made simple .
           </h2>
@@ -112,11 +112,11 @@ export default function Home({ products }) {
           </Button>
         </div>
         <Image
-          src="/stay-healthy.jpg"
+          src="/stay-healthy.jpeg"
           alt="person holding herbal tea"
           width={500}
           height={500}
-          className="w-full lg:w-1/2 h-[512px] object-fit object-center"
+          className="w-full lg:w-1/2 h-[500px] object-fit object-center"
         />
       </div>
     </div>

@@ -1,13 +1,14 @@
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Button = ({ href, className, children, onClick }) => {
+  const router = useRouter();
+
+  function handleClick() {
+    href ? router.push(href) : onClick();
+  }
   return (
-    <Link
-      href={href || ''}
-      className="inline-block"
-    >
       <div
-        onClick={onClick}
+        onClick={handleClick}
         className={
           className +
           ' ' +
@@ -16,7 +17,6 @@ const Button = ({ href, className, children, onClick }) => {
       >
         {children}
       </div>
-    </Link>
   );
 };
 

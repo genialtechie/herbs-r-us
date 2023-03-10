@@ -1,7 +1,6 @@
 const { Client, Environment, ApiError } = require('square');
 import Cors from 'cors';
 import { randomUUID } from 'crypto';
-import { DateConverter } from '../../utils/DateConverter';
 
 // Initializing the cors middleware
 const cors = Cors({
@@ -23,10 +22,7 @@ function runMiddleware(req, res, fn) {
 
 // Initializing the square client
 const client = new Client({
-  environment:
-    process.env.NODE_ENV === 'production'
-      ? Environment.Production
-      : Environment.Sandbox,
+  environment: Environment.Production,
   accessToken: process.env.SQUARE_ACCESS_TOKEN,
 });
 
@@ -42,13 +38,11 @@ export default async function handler(req, res) {
       quantity: item.quantity.toString(),
       metadata: {
         productId: item.id,
-        rentalDate: DateConverter(item.rentalDate).toISOString(),
       },
       name: item.name,
-      note: `Reservation for ${DateConverter(item.rentalDate).toDateString()}}`,
       basePriceMoney: {
         currency: 'USD',
-        amount: (item.price + 50) * 100,
+        amount: item.price * 100,
       },
     }));
 
@@ -62,6 +56,24 @@ export default async function handler(req, res) {
         order: {
           locationId: process.env.SQUARE_LOCATION_ID,
           lineItems: transformedItems,
+          // taxes: [
+          //   {
+          //     name: 'Sales Tax',
+          //     percentage: '8.75',
+          //     scope: 'ORDER',
+          //   },
+          // ],
+          serviceCharges: [
+            {
+              name: 'Shipping',
+              amountMoney: {
+                currency: 'USD',
+                amount: 900,
+              },
+              calculationPhase: 'TOTAL_PHASE',
+              scope: 'ORDER',
+            },
+          ],
         },
       });
       res.status(200).json(session.result.paymentLink);

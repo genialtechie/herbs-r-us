@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { getAvailableProducts } from '../../prisma/queries';
 import QtyInput from '../../components/shop/QtyInput';
 import { useCart } from '../../utils/CartContext';
+import Button from '../../components/Button';
 
 export default function Product({ product }) {
   const [qty, setQty] = useState(1);
@@ -21,7 +22,7 @@ export default function Product({ product }) {
 
   const addToCart = () => {
     if (!policy) {
-      alert('Please agree to the rental policy');
+      alert('Please agree to the sales policy!');
       return;
     }
     dispatch({
@@ -34,7 +35,7 @@ export default function Product({ product }) {
   return (
     <div className="w-full h-fit grid grid-cols-1 lg:grid-cols-3">
       <div className="lg:col-span-2 relative">
-        <div className="flex justify-center p-20 items-center bg-[#e7f2f5]">
+        <div className="flex justify-center p-20 items-center bg-brown h-full">
           <Image
             src={product.image_url}
             alt={product.name}
@@ -43,16 +44,35 @@ export default function Product({ product }) {
           />
         </div>
         <div className="absolute top-0 left-0 max-w-xl">
-          <h3 className="text-3xl px-8 py-4 font-extrabold min-w-[200px] text-center bg-custom-theme/70 lg:bg-custom-theme text-white">
+          <h3 className="text-3xl px-8 py-4 font-extrabold min-w-[200px] text-center bg-custom-theme/70 lg:bg-custom-theme text-black">
             {product.name}
           </h3>
-          <p className="text-xl w-fit px-8 py-4 bg-custom-theme/70 lg:bg-custom-theme text-white">
+          <p className="text-xl w-fit px-8 py-4 bg-custom-theme/70 lg:bg-custom-theme text-black">
             {product.price} USD
           </p>
         </div>
       </div>
       <div className="lg:col-span-1 px-5 lg:px-10 py-5">
-        <p className="mb-5 text-lg lg:text-xl">{product.description}</p>
+        <p className="mb-5 text-sm lg:text-md">{product.description}</p>
+        <div className="mb-5">
+          <p className="text-sm lg:text-md">
+            <span className="text-md text-gray-700 font-bold">
+              Directions:{' '}
+            </span>
+            1 teaspoon of herbs equals 1 cup of boiling water. Tea should be
+            steeped for 10 minutes before serving. You can drink up to three
+            times per day. You can also combine up to three teas, but make sure
+            to use three cups of water.
+          </p>
+        </div>
+        <div className="mb-5">
+          <p className="text-sm lg:text-md text-gray-700 font-bold">
+            This product is not intended to cure any type of disease or replace
+            any prescription medication you are currently using. The FDA has
+            not approved this product. Please be aware of any herbal allergies
+            you may have before using this product.
+          </p>
+        </div>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -82,23 +102,16 @@ export default function Product({ product }) {
                 className="underline hover:text-custom-theme transition duration-300 ease-in-out"
                 href="/policy"
               >
-                rental policy
+                sales policy
               </Link>
             </span>
           </div>
-          <button
-            type="submit"
-            className="w-fit bg-custom-theme text-white my-2 lg:my-5 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
+          <Button
+            className="mr-5 block"
             onClick={addToCart}
           >
             Add to cart
-          </button>
-          <button
-            type="submit"
-            className="w-fit bg-custom-theme text-white my-2 lg:my-5 transition duration-300 ease-in-out block hover:bg-gray-400 hover:text-custom-theme py-4 px-8 rounded-sm"
-          >
-            Check out now
-          </button>
+          </Button>
         </form>
       </div>
     </div>

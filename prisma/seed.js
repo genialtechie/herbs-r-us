@@ -1,158 +1,104 @@
 const prisma = require('./prismaClient');
 
 async function main() {
-  let jumps = [];
-  let concessions = [];
-  let slides = [];
+  let herbs = [];
 
-  jumps.push({
-    name: 'Disney Inflatable',
-    slug: 'disney-bounce-house',
+  herbs.push({
+    name: 'Fibroid Blaster',
+    slug: 'fibroid-blaster',
     image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1673575784/IMG_2721_1_dkuyuh.png',
-    price: 140,
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1678407729/herbs-r-us/fibroid2_onux8v.jpg',
+    price: 25,
     description:
-      "Introducing the Disney Princess Bounce House! This bouncy castle features all your favorite Disney Princesses and a built-in basketball hoop. Perfect for any little princess's birthday party or special event. Make a reservation now and let the royal fun begin!",
+      'This tea is a blend of herbs that have been used for centuries to help shrink fibroids, cysts, and PCOS. Main ingredients are Red Rasberry, Cleavers and Mullien. For best results please use Fibroid Killer with the Uterus Cleanser. Both tea blends can also be used to steam your yoni as well. How does the tea work? It assists with shrinking and for some women passing of fibroids. Each woman will have different results. The herbs help to shrink fibroids by regulating your hormonal balance and slowing down fibroid growth as well as preventing new ones from forming. They also help the lymph and blood system by eliminate fibroid tissue from the body as it breaks down. Diet is very important. Happy Healing!',
   });
 
-  jumps.push({
-    name: 'Birthday Cake',
-    slug: 'birthday-cake-bounce-house',
+  herbs.push({
+    name: 'Uterus Cleanser',
+    slug: 'uterus-cleanser',
     image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1673575785/IMG_2719_1_eqycww.png',
-    price: 135,
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1678407729/herbs-r-us/uterus-cleanser_krjwva.jpg',
+    price: 25,
     description:
-      "Our Birthday Cake Bounce House! This bouncy castle features a giant birthday cake with candles and sprinkles. Perfect for any child's birthday party. Make a reservation now and let the birthday fun begin!",
+      'Herbal tea blends for women made by women. Uterus cleanser assists with naturally cleaning your womb. Main ingredients are Red Raspberry and Red Clover. This tea blend can also be used as a yoni steam. Happy Healing!',
   });
 
-  jumps.push({
-    name: 'Dream Castle',
-    slug: 'dream-castle-bounce-house',
+  herbs.push({
+    name: 'Hemorrhage Eliminator',
+    slug: 'hemorrhage-eliminator',
     image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1673575785/IMG_2724_1_wemyji.png',
-    price: 125,
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1678407729/herbs-r-us/hemorrhage_uv2nx2.jpg',
+    price: 25,
     description:
-      "Introducing the Castle Bounce House! This bouncy castle is designed to look like a real castle, complete with a drawbridge and towers. Perfect for any child's royal-themed birthday party",
+      "This tea assists with naturally stopping heavy menstrual bleeding. Main ingredients are Red Raspberry, Clovers and Shepherd's purse. Use this tea during your cycle to assist with heavy bleeding. This tea can be mixed with no more pain to assist with painful cycles. ",
   });
 
-  jumps.push({
-    name: 'Sesame Street',
-    slug: 'sesame-street-bounce-house',
+  herbs.push({
+    name: 'No More Pain',
+    slug: 'pain-reliever',
     image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1673576990/image000000_1_azgttm.png',
-    price: 140,
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1678407729/herbs-r-us/pain_loa14e.jpg',
+    price: 25,
     description:
-      "Introducing the Sesame Street Bounce House! This bouncy castle features all your favorite Sesame Street characters. Perfect for any child's birthday party or special event. Make a reservation now and let the fun begin!",
+      'No more pain assists with menstrual and endometriosis pain. Main ingredients Red Clover, Red Raspberry and Stinging nettle.',
   });
 
-  jumps.push({
-    name: 'Sports Arena',
-    slug: 'sports-arena-bounce-house',
+  herbs.push({
+    name: 'Immune Blaster',
+    slug: 'immune-blaster',
     image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1673575785/IMG_2723_1_wyqvkz.png',
-    price: 130,
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1678409173/herbs-r-us/Immune_Blaster_hlhi2y.jpg',
+    price: 25,
     description:
-      "Introducing the Sports Arena Bounce House! This bouncy castle features a basketball hoop, soccer goal, and baseball bat. Perfect for any child's birthday party or special event. Make a reservation now and let the games begin!",
+      'This tea assists with keeping your immunity healthy. Main ingredients are Echinacea, Elderberry and Ginger root blend. ',
   });
 
-  jumps.push({
-    name: 'Thomas The Train',
-    slug: 'thomas-train-bounce-house',
+  herbs.push({
+    name: 'Flu Protector',
+    slug: 'flu-protector',
     image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1673575784/IMG_2722_1_kazilu.png',
-    price: 135,
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1678409174/herbs-r-us/flu_pmyzp3.jpg',
+    price: 25,
     description:
-      "Introducing Thomas the train! This bouncy castle features Thomas the train and his friends. Perfect for any child's birthday party or special event. Make a reservation now and let the fun begin!",
+      'Flu Protector assists with keeping your immunity healthy from the Flu symptoms. Main ingredients are Artemisia-Annua (natural herb from Africa) Echinacea, Elderberry and Ginger root blend.',
   });
 
-  slides.push({
-    name: '17ft. Slide With Pool',
-    slug: '17-foot-water-slide',
+  herbs.push({
+    name: 'Relaxation Tea',
+    slug: 'relaxation-tea',
     image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1670980855/jainflatables/product7_wxtfbd.png',
-    price: 325,
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1678407729/herbs-r-us/relaxation_dftufk.jpg',
+    price: 25,
     description:
-      'Introducing the Tropical Splash Water Slide! This water slide features palm trees, exotic flowers, and a built-in pool at the bottom. Perfect for any summer party or event. Make a reservation now!',
+      'Relaxtion tea assists with anxiety and sleep disorders. Main ingredients are chamomile, lavender and lemon balm.',
   });
 
-  slides.push({
-    name: 'Hoop-It-Up',
-    slug: 'hoop-shoot-water-slide',
+  herbs.push({
+    name: 'Blood Pressure Reducer',
+    slug: 'blood-pressure-reducer',
     image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1670983274/jainflatables/product8_aik3mb.png',
-    price: 80,
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1678409174/herbs-r-us/BP_gen7kh.jpg',
+    price: 25,
     description:
-      'The Hoop-It-Up Water Slide is a great addition to any party or event. This water slide features a basketball hoop at the top and a built-in pool at the bottom. Make a reservation now and let the fun begin!',
+      'Blood Pressure Reducer assists with lowering blood pressure. Main ingredients are Hawthorne berry, Nettle and Mango leaves.',
   });
 
-  slides.push({
-    name: '15ft. Double Slide',
-    slug: '15-foot-double-water-slide',
+  herbs.push({
+    name: 'Stay Balanced',
+    slug: 'stay-balanced',
     image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1673575785/IMG_2720_1_noduzw.png',
-    price: 300,
+      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1678407729/herbs-r-us/balanced_ex5mbp.jpg',
+    price: 25,
     description:
-      'The Summer Splash Water Slide features a shaded area at the top and a built-in pool at the bottom. Perfect for any summer party or event. Make a reservation now and let the fun begin!',
-  });
-
-  concessions.push({
-    name: 'Popcorn Machine',
-    slug: 'popcorn-machine',
-    image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1670980854/jainflatables/product9_sviexm.png',
-    price: 60,
-    description:
-      'The Popcorn Machine is a great addition to any party or event. This machine features a 6oz kettle and a 50 servings capacity. Make a reservation now!',
-  });
-
-  concessions.push({
-    name: 'Cotton Candy Machine',
-    slug: 'cotton-candy-machine',
-    image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1671071972/jainflatables/product11_omt6et.png',
-    price: 60,
-    description:
-      'The Cotton Candy Machine is a great addition to any party or event. This machine has a 50 servings capacity. Make a reservation now!',
-  });
-
-  concessions.push({
-    name: 'Snow Cone Machine',
-    slug: 'snow-cone-machine',
-    image_url:
-      'https://res.cloudinary.com/dpti4rlt1/image/upload/v1671071972/jainflatables/product10_t7wyod.png',
-    price: 60,
-    description:
-      'The Snow Cone Machine is a great addition to any party or event. This machine has a 50 servings capacity. Make a reservation now!',
+      'This tea assists with natural estrogen control for women experiencing menopause. Main ingredients are Red Clover and Black Cohosh herbal blend. This tea blend can also be used as a yoni steam.',
   });
 
   await prisma.category.create({
     data: {
-      name: 'Bounces',
+      name: 'Herbs & Teas',
       products: {
         createMany: {
-          data: jumps,
-        },
-      },
-    },
-  });
-
-  await prisma.category.create({
-    data: {
-      name: 'Water Slides',
-      products: {
-        createMany: {
-          data: slides,
-        },
-      },
-    },
-  });
-
-  await prisma.category.create({
-    data: {
-      name: 'Concessions',
-      products: {
-        createMany: {
-          data: concessions,
+          data: herbs,
         },
       },
     },
