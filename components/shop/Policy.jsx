@@ -40,12 +40,20 @@ const Policy = () => {
         </h1>
         <ul className="list-disc list-inside mb-10 text-lg">
           <li>
-          Once the herbs have been prepared and shipped, there are NO REFUNDS.
+            Once the herbs have been prepared and shipped, there are NO REFUNDS.
           </li>
           <li>
-          Please double-check your shipping address before submitting your order.
+            Please double-check your shipping address before submitting your
+            order.
           </li>
         </ul>
+      </div>
+      <div className="text-lg mb-5">
+        <h1 className="my-3 text-2xl font-bold text-theme text-center lg:text-left w-full">
+          Shipping
+        </h1>
+        We ship via USPS Priority Mail. Shipping is $8.99 for local orders.
+        Please contact us for international shipping rates.
       </div>
     </div>
   );

@@ -92,8 +92,8 @@ export default function Home({ products }) {
           <p className="font-semibold">- Sarah M.</p>
         </ReviewCard>
       </div>
-      <div className="h-[500px] w-full flex flex-col lg:flex-row">
-        <div className="w-full h-full lg:w-1/2 bg-brown p-5 py-10 md:p-10 lg:p-20 flex flex-col justify-center">
+      <div className="h-fit w-full flex flex-col lg:flex-row">
+        <div className="w-full lg:h-[500px] h-fit lg:w-1/2 bg-brown p-5 py-10 md:p-10 lg:p-20 flex flex-col justify-center">
           <h2 className="text-3xl lg:text-5xl text-white font-bold mb-5 font-sans">
             Healthy living made simple .
           </h2>
