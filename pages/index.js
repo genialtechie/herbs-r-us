@@ -60,10 +60,7 @@ export default function Home({ products }) {
           className="bg-theme mb-10"
         >
           <p className="mb-2">
-            Herbs R Us has been a game-changer for my wellness routine. The
-            quality of their products is unparalleled and their customer service
-            is top-notch. I highly recommend this store to anyone looking to
-            incorporate natural herbs into their life.
+            Last year I got a ultrasound and they found a couple of polyps and several small fibroids. I purchased the Fibroid Killer and Uterus Cleanser tea and drank a glass 5 times a day for 6 weeks. When I went to have polyps removed 3 months later, the doctor wasn't able to find any. I went for a ultrasound and no polyps were found.
           </p>
           <p className="font-semibold">- Malaya G.</p>
         </ReviewCard>
@@ -72,11 +69,7 @@ export default function Home({ products }) {
           className="bg-green md:origin-left md:-translate-x-20 md:rotate-3 mb-10"
         >
           <p className="mb-2">
-            I was hesitant to try herbal supplements, but Herbs R Us convinced
-            me otherwise. I love that they take the time to educate their
-            customers on the benefits of each herb. I feel so much better since
-            I started using their products, and I will definitely be a lifelong
-            customer.
+            I love the teas and needed something to help cleanse my uterus.
           </p>
           <p className="font-semibold">- Lamar B.</p>
         </ReviewCard>
@@ -85,9 +78,7 @@ export default function Home({ products }) {
           className="bg-brown md:origin-right md:translate-x-20 md:-rotate-3 mb-10"
         >
           <p className="mb-2">
-            I appreciate their commitment to sourcing only the best products. I
-            have already recommended this store to all my friends and family,
-            and I&apos;ll continue to do so.
+            I appreciate their commitment to sourcing only the best products. It was carefully packaged and arrived on time. The aroma is beautiful.
           </p>
           <p className="font-semibold">- Sarah M.</p>
         </ReviewCard>
