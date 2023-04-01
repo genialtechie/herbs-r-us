@@ -84,7 +84,7 @@ const Footer = forwardRef((props, ref) => {
                 className="transition-all cursor-pointer duration-300 hover:text-theme"
                 href="mailto:herbs_r_us@yahoo.com"
               >
-                info@herbsrus.com
+                herbs_r_us@yahoo.com
               </a>
             </li>
           </ul>
