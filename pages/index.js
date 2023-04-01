@@ -69,7 +69,7 @@ export default function Home({ products }) {
           className="bg-green md:origin-left md:-translate-x-20 md:rotate-3 mb-10"
         >
           <p className="mb-2">
-            I love the teas and needed something to help cleanse my uterus.
+            I appreciate their commitment to sourcing only the best products. It was carefully packaged and arrived on time. The aroma is beautiful.
           </p>
           <p className="font-semibold">- Lamar B.</p>
         </ReviewCard>
@@ -78,7 +78,7 @@ export default function Home({ products }) {
           className="bg-brown md:origin-right md:translate-x-20 md:-rotate-3 mb-10"
         >
           <p className="mb-2">
-            I appreciate their commitment to sourcing only the best products. It was carefully packaged and arrived on time. The aroma is beautiful.
+            I love the teas and needed something to help cleanse my uterus.
           </p>
           <p className="font-semibold">- Sarah M.</p>
         </ReviewCard>
