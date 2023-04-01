@@ -74,23 +74,15 @@ const Footer = forwardRef((props, ref) => {
             <li className="mb-1">
               <a
                 className="cursor-pointer transition-all duration-300 hover:text-theme"
-                href="http://instagram.com/magpollotech"
+                href="http://instagram.com/herbsrus2020"
               >
                 Instagram
               </a>
             </li>
             <li className="mb-1">
               <a
-                className="cursor-pointer transition-all duration-300 hover:text-theme"
-                href="http://twitter.com/magpollotech"
-              >
-                Twitter
-              </a>
-            </li>
-            <li className="mb-1">
-              <a
                 className="transition-all cursor-pointer duration-300 hover:text-theme"
-                href="mailto:info@herbsrus.com"
+                href="mailto:herbs_r_us@yahoo.com"
               >
                 info@herbsrus.com
               </a>
