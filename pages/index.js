@@ -60,7 +60,7 @@ export default function Home({ products }) {
           className="bg-theme mb-10"
         >
           <p className="mb-2">
-            Last year I got a ultrasound and they found a couple of polyps and several small fibroids. I purchased the Fibroid Killer and Uterus Cleanser tea and drank a glass 5 times a day for 6 weeks. When I went to have polyps removed 3 months later, the doctor wasn't able to find any. I went for a ultrasound and no polyps were found.
+            Last year I got a ultrasound and they found a couple of polyps and several small fibroids. I purchased the Fibroid Killer and Uterus Cleanser tea and drank a glass 5 times a day for 6 weeks. When I went to have polyps removed 3 months later, the doctor wasn&apos;t able to find any. I went for a ultrasound and no polyps were found.
           </p>
           <p className="font-semibold">- Malaya G.</p>
         </ReviewCard>
