@@ -74,7 +74,7 @@ const Footer = forwardRef((props, ref) => {
             <li className="mb-1">
               <a
                 className="cursor-pointer transition-all duration-300 hover:text-theme"
-                href="http://instagram.com/herbsrus2020"
+                href="http://instagram.com/herbsrus2020/"
               >
                 Instagram
               </a>
